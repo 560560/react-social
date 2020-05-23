@@ -7,19 +7,4 @@
     padding: 10px;
 }
 
-.dialogsItems .dialog {
-    color: #285473;
-    text-decoration: none;
-}
 
-.dialogsItems .active {
-    text-shadow: #c7c7c7 1px 1px 0;
-}
-
-.messages {
-    padding: 10px;
-}
-
-.messages .message {
-
-}
