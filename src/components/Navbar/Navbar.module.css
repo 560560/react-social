@@ -1,21 +1,27 @@
 .nav {
     grid-area: n;
     margin-top: 10px;
-    padding: 15px 25px;
-    background-color: burlywood;
+    padding: 15px;
+    background-color: #ffffff;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .2)
 }
 
 
+.item {
+    padding-left: 10px;
+
+}
+
 
 .item a{
-    color: white;
+    color: #285473;
     text-decoration: none;
+
 }
 
 .item a.active {
-    color: gold;
+    text-shadow: #c7c7c7 1px 1px 0;
 }
 
 
