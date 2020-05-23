@@ -33,12 +33,8 @@ const Dialogs = (props) => {
                 <Message messageItem={messagesData[2].message} id={messagesData[2].id}/>
                 <Message messageItem={messagesData[0].message} id={messagesData[3].id}/>
 
-
-
-
             </div>
         </div>
-
     );
 
 }
