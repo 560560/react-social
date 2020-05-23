@@ -9,7 +9,6 @@ let postData = [
 
 ]
 
-
 const MyPosts = (props) => {
     return (
         <div className={s.postsBlock}>
