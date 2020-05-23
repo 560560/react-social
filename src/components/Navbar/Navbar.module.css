@@ -1,0 +1,20 @@
+.nav {
+    grid-area: n;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    background-color: burlywood;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2)
+}
+
+.item {
+    color: white;
+}
+
+.item.active {
+    color: gold;
+}
+
+
+
