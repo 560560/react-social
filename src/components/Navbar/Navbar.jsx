@@ -20,6 +20,7 @@ const Navbar = (props) => {
       <div className={s.item}>
         <NavLink to="/settings" activeClassName={s.active}>Settings</NavLink>
       </div>
+
     </nav>)
 }
 export default Navbar;
