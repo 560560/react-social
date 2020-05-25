@@ -6,8 +6,16 @@
     margin-top: 5px;
     width: 200px;
 }
+
+.profileBackground {
+    text-align: center;
+
+}
+
 .profileBackground img{
+
     border-radius: 5px;
     width: 100%;
+
 }
 

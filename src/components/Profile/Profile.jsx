@@ -5,11 +5,12 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import Post from "./MyPosts/Post/Post";
 
 const Profile = (props) => {
+
     return (
         <div>
 
             <ProfileInfo/>
-            <MyPosts postData={props.postData}/>
+            <MyPosts postsData={props.state.postsData}/>
         </div>)
 
 
