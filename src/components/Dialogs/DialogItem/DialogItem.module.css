@@ -1,8 +1,25 @@
+.dialogItem {
+    padding-bottom: 10px;
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
 .dialogItem a {
     text-decoration: none;
     color: #285473;
+
+
+}
+
+.dialogItem img {
+    width: 40px;
+    border-radius: 20px;
 }
 
 .dialogItem a.active {
     text-shadow: #878787 1px 0px 0;
+    
+}
+.minDialog{
+    padding-left: 10px;
+    padding-top: 7px;
 }

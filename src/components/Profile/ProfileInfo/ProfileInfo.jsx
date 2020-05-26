@@ -9,7 +9,7 @@ const ProfileInfo = (props) => {
             </div>
             <div className={s.descriptionBlock}>
                 <div className={s.avatar}>
-                    <img src="http://9878621572.myjino.ru/img/cat.jpg" alt=""/>
+                    <img src="http://9878621572.myjino.ru/img/ava_1.jpg" alt=""/>
                     description
                 </div>
             </div>
