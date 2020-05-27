@@ -1,16 +1,24 @@
 .dialogItem {
-    padding-bottom: 10px;
+    padding-bottom: 8px;
+    min-width: 200px;
     display: grid;
     grid-template-columns: 2fr 10fr;
+    border-bottom: 1px solid lightblue;
 }
 .dialogItem a {
     text-decoration: none;
     color: #285473;
 
 
+
 }
 
-.dialogItem img {
+.dialogItem .avatar {
+ padding-top: 10px;
+
+}
+
+.dialogItem .avatar img {
     width: 40px;
     border-radius: 20px;
 }
@@ -20,6 +28,7 @@
     
 }
 .minDialog{
-    padding-left: 10px;
+    padding-left: 15px;
+    padding-top: 4px;
 
 }

@@ -3,11 +3,25 @@
     grid-template-columns: 2fr 10fr;
 }
 
-.dialogsItems {
-    padding: 10px;
+.addMessage {
+    display: grid;
+    grid-template-columns: 9fr 2fr 1fr;
+
+}
+.addMessage button{
+    margin-left: 30px;
+
 }
 
+.dialogsItems {
+    padding: 20px 0px 20px 20px;
+    min-height: 810px;
+}
 
+.dialogBlock {
+    padding: 20px;
+    border-left: 1px solid lightblue;
+}
 
 
 

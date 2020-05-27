@@ -2,18 +2,23 @@ import React from "react";
 import s from "./Message.module.css";
 
 const Message = (props) => {
-    return (
-        <div className={s.messages}>
-          <div className={s.sender}>
-            {props.owner === true ? <div className={s.senderProfile}><img src={props.ownerAva} alt=""/></div> : <div className={s.senderProfile}><img src={props.apponentsAva} alt=""/></div>}
-            {props.owner === true ? <div className={s.senderProfile}>You</div> : <div className={s.senderProfile}>{props.apponentsName}</div>}
+  return (
+    <div className={s.messages}>
+      <div className={s.sender}>
+        {props.owner === true ? <div className={s.senderAva}><img src={props.ownerAva} alt=""/></div> :
+          <div className={s.senderAva}><img src={props.apponentsAva} alt=""/></div>}
+        {props.owner === true ? <div className={s.senderName}>You</div> :
+          <div className={s.senderName}>{props.apponentsName}</div>}
 
-          </div>
+      </div>
 
-            <div className={s.message}>{props.messageItem}</div>
-        </div>
+      <div className={s.message}>
+        <div></div>
+        <div>{props.messageItem}</div>
+      </div>
+    </div>
 
-    )
+  )
 
 
 }
