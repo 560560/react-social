@@ -3,6 +3,7 @@ import s from './Profile.module.css';
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import Post from "./MyPosts/Post/Post";
+import {updateTextareaMyPostsData} from "../../redux/state";
 
 const Profile = (props) => {
 
@@ -10,7 +11,7 @@ const Profile = (props) => {
         <div>
 
             <ProfileInfo/>
-            <MyPosts postsData={props.state.postsData} addPost={props.addPost}/>
+            <MyPosts state={props.state} addPost={props.addPost} updateTextareaMyPostsData={props.updateTextareaMyPostsData}/>
         </div>)
 
 

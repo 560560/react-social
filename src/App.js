@@ -8,6 +8,7 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
+import {updateTextareaMessages, updateTextareaMyPostsData} from "./redux/state";
 
 
 const App = (props) => {
@@ -18,8 +19,10 @@ const App = (props) => {
         <Header/>
         <Navbar state={props.state.siteBar}/>
         <div className='app-wrapper-content'>
-          <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage}/>}/>
-          <Route path='/profile' render={() => <Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
+          <Route path='/dialogs'
+                 render={() => <Dialogs state={props.state.dialogsPage} sendMessage={props.sendMessage} updateTextareaMessages={props.updateTextareaMessages}/>}/>
+          <Route path='/profile' render={() => <Profile state={props.state.profilePage} addPost={props.addPost}
+                                                        updateTextareaMyPostsData={props.updateTextareaMyPostsData}/>}/>
           <Route path='/news' component={News}/>
           <Route path='/music' component={Music}/>
           <Route path='/settings' component={Settings}/>

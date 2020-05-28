@@ -2,6 +2,7 @@ import {rerenderEntireTree} from "../render";
 
 let state = {
   profilePage: {
+    postTextArea: "",
     postsData: [
       {id: 1, message: 'Hi, how are you?', likesCount: 15},
       {id: 2, message: "It's my first post", likesCount: 20}
@@ -9,6 +10,7 @@ let state = {
     ]
   },
   dialogsPage: {
+    messageTexArea: "",
     dialogsData: [
       {id: 1, name: "Anton", avatar: "http://9878621572.myjino.ru/img/ava_1.jpg"},
       {id: 2, name: "Elena", avatar: "http://9878621572.myjino.ru/img/ava_2.jpg"},
@@ -75,14 +77,40 @@ let state = {
 
 }
 
-export let addPost = (postMessage) => {
-  debugger;
+export let updateTextareaMyPostsData = (messageText) => {
+  state.profilePage.postTextArea = messageText;
+  rerenderEntireTree(state)
+}
+
+export let addPost = () => {
   let newPost = {
     id: 2,
-    message: postMessage,
+    message: state.profilePage.postTextArea,
     likesCount: 0
   };
   state.profilePage.postsData.push(newPost);
+  state.profilePage.postTextArea = "";
+  rerenderEntireTree(state);
+}
+
+
+export let updateTextareaMessages = (messageText) => {
+  state.dialogsPage.messageTexArea = messageText;
+  rerenderEntireTree(state)
+}
+export let sendMessage = () => {
+
+  let newMessage = {
+    id: 6,
+    owner: true,
+    ownerAva: "http://9878621572.myjino.ru/img/ava_1.jpg",
+    apponentsName: "Mihail",
+    apponentsAva: "http://9878621572.myjino.ru/img/ava_3.jpg",
+    message: state.dialogsPage.messageTexArea,
+    date: "Date()"
+  }
+  state.dialogsPage.messagesData.push(newMessage);
+  state.dialogsPage.messageTexArea = "";
   rerenderEntireTree(state)
 }
 
