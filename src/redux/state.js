@@ -75,6 +75,16 @@ let store = {
   },
   _callSubscriber() {
   },
+  subscribe(observer) {
+    this._callSubscriber = observer;
+  },
+  getState() {
+    return this._state
+  },
+  updateTextareaMyPostsData(messageText) {
+    this._state.profilePage.postTextArea = messageText;
+    this._callSubscriber(this._state);
+  },
   addPost() {
     if (this._state.profilePage.postTextArea === "") {
       return
@@ -86,10 +96,6 @@ let store = {
     };
     this._state.profilePage.postsData.push(newPost);
     this._state.profilePage.postTextArea = "";
-    this._callSubscriber(this._state);
-  },
-  updateTextareaMyPostsData(messageText) {
-    this._state.profilePage.postTextArea = messageText;
     this._callSubscriber(this._state);
   },
   updateTextareaMessages(messageText) {
@@ -113,11 +119,19 @@ let store = {
     this._state.dialogsPage.messageTexArea = "";
     this._callSubscriber(this._state);
   },
-  subscribe(observer) {
-    this._callSubscriber = observer;
-  },
-  getState() {
-    return this._state
+  dispatch(action){
+    if(action.key === "ADD-POST"){
+      this.addPost();
+    }
+    else if (action.key === "SEND-MESSAGE"){
+      this.sendMessage();
+    }
+    else if (action.key === "UPDATE-TEXTAREA-MY-POSTS-DATA"){
+      this.updateTextareaMyPostsData(action.messageText)
+    }
+    else if (action.key === "UPDATE-TEXTAREA-MESSAGES"){
+      this.updateTextareaMessages(action.messageText)
+    }
   }
 }
 

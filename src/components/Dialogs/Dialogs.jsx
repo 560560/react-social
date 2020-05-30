@@ -9,7 +9,13 @@ const Dialogs = (props) => {
 
   let messageChange = () => {
     let messageText = newMessageElement.current.value;
-    props.updateTextareaMessages(messageText);
+    let action = {key: "UPDATE-TEXTAREA-MESSAGES", messageText: messageText};
+    props.dispatch(action);
+  }
+
+  let sendMessage = () => {
+      let action = {key: "SEND-MESSAGE"};
+      props.dispatch(action);
   }
 
 
@@ -31,7 +37,7 @@ const Dialogs = (props) => {
         {messagesElements}
         <div className={s.addMessage}>
           <textarea onChange={messageChange} ref={newMessageElement} value={props.state.messageTexArea}/>
-          <button onClick={props.sendMessage}>Отправить</button>
+          <button onClick={sendMessage}>Отправить</button>
         </div>
       </div>
 
