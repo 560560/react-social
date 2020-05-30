@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from "./Post/Post";
+import {addPostActionCreater, updateTextareaMyPostsDataActionCreater} from "../../../redux/state";
 
 
 const MyPosts = (props) => {
@@ -8,13 +9,15 @@ const MyPosts = (props) => {
 
     let postChange = () => {
         let messageText = newPostElement.current.value
-        let action = {key: "UPDATE-TEXTAREA-MY-POSTS-DATA", messageText: messageText};
+        let action = updateTextareaMyPostsDataActionCreater(messageText);
         props.dispatch(action)
     }
+
     let addPost = () => {
-        let action = {key: "ADD-POST"};
+        let action = addPostActionCreater();
         props.dispatch(action);
     }
+
     let postsElements = props.state.postsData.map(post => <Post id={post.id} message={post.message}
                                                                 likesCount={post.likesCount}/>)
 

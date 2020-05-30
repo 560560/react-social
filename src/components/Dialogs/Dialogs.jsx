@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
+import {sendMessageActionCreater, updateTextareaMessagesActionCreater} from "../../redux/state";
 
 
 const Dialogs = (props) => {
@@ -9,12 +10,12 @@ const Dialogs = (props) => {
 
   let messageChange = () => {
     let messageText = newMessageElement.current.value;
-    let action = {key: "UPDATE-TEXTAREA-MESSAGES", messageText: messageText};
+    let action = updateTextareaMessagesActionCreater(messageText);
     props.dispatch(action);
   }
 
   let sendMessage = () => {
-      let action = {key: "SEND-MESSAGE"};
+      let action = sendMessageActionCreater();
       props.dispatch(action);
   }
 
