@@ -1,7 +1,18 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_TEXTAREA_MY_POSTS_DATA = "UPDATE-TEXTAREA-MY-POSTS-DATA";
 
-const profileReducer = (state, action) => {
+let initialState = {
+  postTextArea: "",
+  postsData: [
+    {id: 1, message: 'Hi, how are you?', likesCount: 15},
+    {id: 2, message: "It's my first post", likesCount: 20}
+
+  ]
+}
+
+
+
+const profileReducer = (state = initialState, action) => {
 
   switch (action.type) {
 
