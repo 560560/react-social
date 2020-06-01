@@ -1,6 +1,6 @@
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import store from "./redux/state";
+import store from "./redux/store";
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import React from "react";

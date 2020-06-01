@@ -2,13 +2,6 @@ import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
 
-
-const ADD_POST = "ADD-POST";
-const SEND_MESSAGE = "SEND-MESSAGE";
-const UPDATE_TEXTAREA_MY_POSTS_DATA = "UPDATE-TEXTAREA-MY-POSTS-DATA";
-const UPDATE_TEXTAREA_MESSAGES = "UPDATE-TEXTAREA-MESSAGES";
-
-
 let store = {
     _state: {
         profilePage: {
@@ -99,15 +92,6 @@ let store = {
         this._callSubscriber(this._state)
     }
 }
-
-export const addPostActionCreater = () => ({type: ADD_POST});
-export const sendMessageActionCreater = () => ({type: SEND_MESSAGE});
-export const updateTextareaMyPostsDataActionCreater = (messageText) => {
-    return {type: UPDATE_TEXTAREA_MY_POSTS_DATA, messageText: messageText}
-};
-export const updateTextareaMessagesActionCreater = (messageText) => {
-    return {type: UPDATE_TEXTAREA_MESSAGES, messageText: messageText}
-};
 
 window.store = store;
 export default store;
