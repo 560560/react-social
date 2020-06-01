@@ -15,16 +15,15 @@ const Dialogs = (props) => {
   }
 
   let sendMessage = () => {
-      let action = sendMessageActionCreater();
-      props.dispatch(action);
+    let action = sendMessageActionCreater();
+    props.dispatch(action);
   }
-
 
 
   let messagesElements = props.state.messagesData.map(m => <Message messageItem={m.message} id={m.id}
                                                                     owner={m.owner}
-                                                                    apponentsName={m.apponentsName}
-                                                                    apponentsAva={m.apponentsAva}
+                                                                    opponentsName={m.opponentsName}
+                                                                    opponentsAva={m.opponentsAva}
                                                                     ownerAva={m.ownerAva}/>)
 
   let dialogsElements = props.state.dialogsData.map(m => <DialogItem name={m.name} id={m.id} avatar={m.avatar}/>)
@@ -37,8 +36,11 @@ const Dialogs = (props) => {
       <div className={s.dialogBlock}>
         {messagesElements}
         <div className={s.addMessage}>
-          <textarea onChange={messageChange} ref={newMessageElement} value={props.state.messageTexArea}/>
-          <button onClick={sendMessage}>Отправить</button>
+          <textarea onChange={messageChange}
+                    ref={newMessageElement}
+                    value={props.state.messageTexArea}
+                    placeholder="Your message"/>
+          <button onClick={sendMessage}>Send</button>
         </div>
       </div>
 

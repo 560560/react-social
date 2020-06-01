@@ -6,9 +6,9 @@ const Message = (props) => {
     <div className={s.messages}>
       <div className={s.sender}>
         {props.owner === true ? <div className={s.senderAva}><img src={props.ownerAva} alt=""/></div> :
-          <div className={s.senderAva}><img src={props.apponentsAva} alt=""/></div>}
+          <div className={s.senderAva}><img src={props.opponentsAva} alt=""/></div>}
         {props.owner === true ? <div className={s.senderName}>You</div> :
-          <div className={s.senderName}>{props.apponentsName}</div>}
+          <div className={s.senderName}>{props.opponentsName}</div>}
 
       </div>
 

@@ -20,7 +20,7 @@ const App = (props) => {
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header/>
-        <Navbar state={props.state.siteBar}/>
+        <Navbar state={props.state.sidebar}/>
         <div className='app-wrapper-content'>
           <Route path='/dialogs'
                  render={() => <Dialogs state={props.state.dialogsPage} dispatch={props.dispatch}/>}/>
