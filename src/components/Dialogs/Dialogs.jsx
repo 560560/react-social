@@ -6,27 +6,25 @@ import {sendMessageActionCreater, updateTextareaMessagesActionCreater} from "../
 
 
 const Dialogs = (props) => {
+
   let newMessageElement = React.createRef();
 
   let messageChange = () => {
     let messageText = newMessageElement.current.value;
-    let action = updateTextareaMessagesActionCreater(messageText);
-    props.dispatch(action);
+    props.messageChange(messageText);
   }
 
   let sendMessage = () => {
-    let action = sendMessageActionCreater();
-    props.dispatch(action);
+    props.sendMessage()
   }
 
+  let messagesElements = props.messagesData.map(m => <Message messageItem={m.message} id={m.id}
+                                                              owner={m.owner}
+                                                              opponentsName={m.opponentsName}
+                                                              opponentsAva={m.opponentsAva}
+                                                              ownerAva={m.ownerAva}/>)
 
-  let messagesElements = props.state.messagesData.map(m => <Message messageItem={m.message} id={m.id}
-                                                                    owner={m.owner}
-                                                                    opponentsName={m.opponentsName}
-                                                                    opponentsAva={m.opponentsAva}
-                                                                    ownerAva={m.ownerAva}/>)
-
-  let dialogsElements = props.state.dialogsData.map(m => <DialogItem name={m.name} id={m.id} avatar={m.avatar}/>)
+  let dialogsElements = props.dialogsData.map(m => <DialogItem name={m.name} id={m.id} avatar={m.avatar}/>)
   return (
     <div className={s.dialogs}>
       <div className={s.dialogsItems}>
@@ -38,7 +36,7 @@ const Dialogs = (props) => {
         <div className={s.addMessage}>
           <textarea onChange={messageChange}
                     ref={newMessageElement}
-                    value={props.state.messageTexArea}
+                    value={props.messageTexArea}
                     placeholder="Your message"/>
           <button onClick={sendMessage}>Send</button>
         </div>
