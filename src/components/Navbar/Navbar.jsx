@@ -3,9 +3,12 @@ import s from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
 import Friends from "./Friends/Friends";
 
+
 const Navbar = (props) => {
 
-  let listOfFriends = props.state.friendsData.map(f => <Friends friendsName={f.friendsName} avatar={f.avatar}/>)
+
+
+  let listOfFriends = props.friendsData.map(f => <Friends friendsName={f.friendsName} avatar={f.avatar}/>)
 
   return (
     <div className={s.leftSide}>
