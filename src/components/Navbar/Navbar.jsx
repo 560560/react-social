@@ -8,7 +8,7 @@ const Navbar = (props) => {
 
 
 
-  let listOfFriends = props.friendsData.map(f => <Friends friendsName={f.friendsName} avatar={f.avatar}/>)
+  let listOfFriends = props.friendsData.map(f => <Friends key={f.id} id={f.id} friendsName={f.friendsName} avatar={f.avatar}/>)
 
   return (
     <div className={s.leftSide}>

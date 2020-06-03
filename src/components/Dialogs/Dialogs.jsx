@@ -18,13 +18,18 @@ const Dialogs = (props) => {
     props.sendMessage()
   }
 
-  let messagesElements = props.messagesData.map(m => <Message messageItem={m.message} id={m.id}
+  let messagesElements = props.messagesData.map(m => <Message key={m.id}
+                                                              messageItem={m.message}
+                                                              id={m.id}
                                                               owner={m.owner}
                                                               opponentsName={m.opponentsName}
                                                               opponentsAva={m.opponentsAva}
                                                               ownerAva={m.ownerAva}/>)
 
-  let dialogsElements = props.dialogsData.map(m => <DialogItem name={m.name} id={m.id} avatar={m.avatar}/>)
+  let dialogsElements = props.dialogsData.map(d => <DialogItem key={d.id}
+                                                               name={d.name}
+                                                               id={d.id}
+                                                               avatar={d.avatar}/>)
   return (
     <div className={s.dialogs}>
       <div className={s.dialogsItems}>

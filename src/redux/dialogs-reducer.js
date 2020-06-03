@@ -64,9 +64,16 @@ const dialogsReducer = (state = initialState, action) => {
 
   switch (action.type) {
 
+    case UPDATE_TEXTAREA_MESSAGES: {
+      return {
+        ...state,
+        messageTexArea: action.messageText
+      }
+    }
     case SEND_MESSAGE: {
-      let stateCopy = {...state}
-      stateCopy.messagesData = [...state.messagesData]
+      if (state.messageTexArea === "") {
+        return state
+      }
       let newMessage = {
         id: 6,
         owner: true,
@@ -76,29 +83,24 @@ const dialogsReducer = (state = initialState, action) => {
         message: state.messageTexArea,
         date: "Date()"
       }
-      if (stateCopy.messageTexArea === "") {
-        return state
+      return {
+        ...state,
+        messageTexArea: "",
+        messagesData: [...state.messagesData, newMessage]
       }
-      stateCopy.messagesData.push(newMessage);
-      stateCopy.messageTexArea = "";
-      return stateCopy
-    }
 
-    case UPDATE_TEXTAREA_MESSAGES: {
-      let stateCopy = {...state}
-      stateCopy.messageTexArea = action.messageText;
-      return stateCopy
     }
     default: {
-      let stateCopy = {...state}
-      return stateCopy;
+      return state;
     }
   }
 }
 
 export const sendMessageActionCreater = () => {
-  return {type: SEND_MESSAGE}};
+  return {type: SEND_MESSAGE}
+};
 export const updateTextareaMessagesActionCreater = (messageText) => {
-  return {type: UPDATE_TEXTAREA_MESSAGES, messageText: messageText}};
+  return {type: UPDATE_TEXTAREA_MESSAGES, messageText: messageText}
+};
 
 export default dialogsReducer;
