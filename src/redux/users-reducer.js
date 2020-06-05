@@ -1,14 +1,12 @@
 const FOLLOW = "FOLLOW"
 const UNFOLLOW = "UNFOLLOW"
+const SET_USERS = "SET-USERS"
 
 let initialState = {
-  users: [
-    {id: 1, userAvatar: "http://9878621572.myjino.ru/img/ava_1.jpg", fullName: "Dmitry", status: "I'm a boss", location: {country: "Belarus", city: "Minsk"}, isFriend: true},
-    {id: 2, userAvatar: "http://9878621572.myjino.ru/img/ava_2.jpg", fullName: "Svetlana", status: "I'm so pretty", location: {country: "Belarus", city: "Minsk"}, isFriend: true},
-    {id: 3, userAvatar: "http://9878621572.myjino.ru/img/ava_3.jpg", fullName: "Anton", status: "Training", location: {country: "Russia", city: "Orenburg"}, isFriend: false},
-    {id: 4, userAvatar: "http://9878621572.myjino.ru/img/ava_4.jpg", fullName: "Alexey", status: "", location: {country: "Kazakhstan", city: "Aqtobe"}, isFriend: false}]
+  users: []
 
 }
+
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case FOLLOW:
@@ -16,23 +14,26 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         users: state.users.map(u => {
            if (u.id === action.userID) {
-            return {...u,  isFriend: true}
+            return {...u,  followed: true}
           }
         return u;
         })
         }
-
     case UNFOLLOW:
       return {
         ...state,
         users: state.users.map(u => {
           if (u.id === action.userID) {
-            return {...u, isFriend: false}
+            return {...u, followed: false}
           }
           return u;
         })
       }
-
+    case SET_USERS:
+      return {
+        ...state,
+        users: [...state.users, ...action.users]
+      }
     default:
       return state;
 
@@ -42,9 +43,11 @@ const usersReducer = (state = initialState, action) => {
 export const followActionCreater = (userID) => {
   return {type: FOLLOW, userID: userID}
 }
-
 export const unfollowActionCreater = (userID) => {
   return {type: UNFOLLOW, userID: userID}
+}
+export const setUserdActionCreater = (users) => {
+  return {type: SET_USERS, users: users}
 }
 
 

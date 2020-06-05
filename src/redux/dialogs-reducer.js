@@ -14,7 +14,7 @@ let initialState = {
     {
       id: 1,
       owner: true,
-      ownerAva: "./img/ava_1.jpg",
+      ownerAva: "http://9878621572.myjino.ru/img/ava_1.jpg",
       opponentsName: "Mihail",
       opponentsAva: "http://9878621572.myjino.ru/img/ava_3.jpg",
       message: "I'm OK! How is your IT-KAMASUTRA",
