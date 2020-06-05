@@ -7,17 +7,15 @@ class Users extends React.Component {
   constructor(props) {
     super(props);
 
-
-    axios.get("https://social-network.samuraijs.com/api/1.0/users")
+    axios.get("https://social-network.samuraijs.com/api/1.0/users?count=5&page=310")
       .then(response => {
-        debugger;
         this.props.setUsers(response.data.items)
       })
   }
 
   render() {
     return <div>
-      Users
+
       {
         this.props.users.map(u =>
           <div className={s.usersBlock} key={u.id}>
