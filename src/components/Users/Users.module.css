@@ -1,5 +1,22 @@
 .pagesCounter {
 
+    padding: 40px 0px 0px 0px;
+    text-align: center;
+
+}
+
+.pagesCounter span {
+    padding: 0px 10px 0px 10px;
+}
+
+
+.pagesCounter .selectedPage {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.pagesCounter .page {
+    cursor: pointer;
 }
 
 .usersBlock {

@@ -4,20 +4,49 @@ import * as axios from "axios";
 import ava_null from "../../assets/images/ava_null.png"
 
 class Users extends React.Component {
-    totalPages;
+
     componentDidMount() {
         this.props.clearUsers();
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=5&page=1`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`)
             .then(response => {
                 this.props.setUsers(response.data.items)
-                this.totalPages = response.data.totalCount/5
+                this.props.setUsersCount(response.data.totalCount)
             })
     };
 
+    onPageChanged = (pageNumber) => {
+        this.props.setCurrentPage(pageNumber)
+        this.props.clearUsers();
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${pageNumber}`)
+            .then(response => {
+                this.props.setUsers(response.data.items)
+                this.props.setUsersCount(response.data.totalCount)
+            })
+
+    }
+
     render() {
+        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+        let pages = [];
+        for (let i = 1; i <= pagesCount; i++) {
+            if (pages.length < 10) {
+                pages.push(i)
+            } else if (i === pagesCount) {
+                pages.push("...")
+                pages.push(i)
+            }
+
+        }
+
         return <div>
             <div className={s.pagesCounter}>
-
+                {pages.map(p => {
+                    return <span className={(this.props.currentPage === p) ? s.selectedPage : s.page} key={p}
+                                 onClick={() => {
+                                     this.onPageChanged(p)
+                                 }}>
+                        {p}</span>
+                })}
             </div>
             {
                 this.props.users.map(u =>
