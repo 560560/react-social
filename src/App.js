@@ -13,28 +13,26 @@ import UsersContainer from "./components/Users/UsersContainer";
 
 const App = (props) => {
 
-  return (
-    <BrowserRouter>
-      <div className='app-wrapper'>
-        <Header/>
-        <NavbarContainer/>
-        <div className='app-wrapper-content'>
-          <Route path='/dialogs' render={() => <DialogsContainer/>}/>
+    return (
+        <div className='app-wrapper'>
+            <Header/>
+            <NavbarContainer/>
+            <div className='app-wrapper-content'>
+                <Route path='/dialogs' render={() => <DialogsContainer/>}/>
 
-          <Route path='/profile' render={() => <Profile/>}/>
+                <Route path='/profile' render={() => <Profile/>}/>
 
-          <Route path='/users' render={() => <UsersContainer/>}/>
+                <Route path='/users' render={() => <UsersContainer/>}/>
 
-          <Route path='/news' component={News}/>
+                <Route path='/news' component={News}/>
 
-          <Route path='/music' component={Music}/>
+                <Route path='/music' component={Music}/>
 
-          <Route path='/settings' component={Settings}/>
+                <Route path='/settings' component={Settings}/>
 
+            </div>
         </div>
-      </div>
-    </BrowserRouter>
-  );
+    );
 }
 
 export default App;

@@ -1,3 +1,7 @@
+.pagesCounter {
+
+}
+
 .usersBlock {
 
     display: grid;
@@ -6,25 +10,28 @@
 }
 
 
-
 .userAva_followButton {
     text-align: center;
     min-width: 100px;
 
 }
 
+
 .userAva_followButton .followUnfollowButton {
 
 }
+
 
 .userAva {
 
 }
 
-.userAva img{
+
+.userAva img {
     width: 60px;
     border-radius: 30px;
 }
+
 
 .userInfo {
     border: 1px solid black;
@@ -37,20 +44,26 @@
 
 }
 
+
 .userInfo .userName {
     margin-left: 15px;
     margin-top: 10px;
 }
+
+
 .userInfo .status {
     margin-left: 15px;
     margin-top: 10px;
 }
+
 
 .userInfo .country {
     text-align: right;
     margin-right: 15px;
     margin-top: 10px;
 }
+
+
 .userInfo .city {
     text-align: right;
     margin-right: 15px;

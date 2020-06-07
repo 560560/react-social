@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import Users from "./Users";
-import {followActionCreater, setUserdActionCreater, unfollowActionCreater} from "../../redux/users-reducer";
+import {followActionCreater, setUsersActionCreater, unfollowActionCreater, clearUsersActionCreater} from "../../redux/users-reducer";
 
 
 let mapStateToProps = (state) =>{
@@ -21,7 +21,10 @@ let mapDispatchToProps = (dispatch) =>{
       dispatch(action);
     },
     setUsers: (users) => {
-      dispatch(setUserdActionCreater(users))
+      dispatch(setUsersActionCreater(users))
+    },
+    clearUsers: () => {
+      dispatch(clearUsersActionCreater())
     }
   }
 }
