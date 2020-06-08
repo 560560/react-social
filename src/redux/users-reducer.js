@@ -4,7 +4,7 @@ const SET_USERS = "SET-USERS"
 const CLEAR_USERS = "CLEAR-USERS"
 const SET_USERS_COUNT = "SET-USERS-COUNT"
 const SET_CURRENT_PAGE = "SET-CURRENT-PAGE"
-
+const TOGGLE_IS_FETCHING = "TOGGLE-IS-FETCHING"
 
 let initialState = {
     users: [],
@@ -13,7 +13,8 @@ let initialState = {
     ],
     pageSize: 5,
     totalUsersCount: 0,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: true
 
 }
 
@@ -57,6 +58,9 @@ const usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 currentPage: action.pageNumber}
+        case TOGGLE_IS_FETCHING:
+            return {
+                ...state, isFetching: action.isFetching}
 
         default:
             return state;
@@ -70,5 +74,6 @@ export const setUsersActionCreater = (users) => ({type: SET_USERS, users})
 export const clearUsersActionCreater = () => ({type: CLEAR_USERS})
 export const setUsersCountActionCreater = (users) => ({type: SET_USERS_COUNT, users})
 export const setCurrentPageActionCreater = (pageNumber) => ({type: SET_CURRENT_PAGE, pageNumber})
+export const setIsFetchingActionCreater = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export default usersReducer

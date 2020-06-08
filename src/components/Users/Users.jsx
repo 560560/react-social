@@ -50,9 +50,8 @@ const Users = (props) => {
                         {p}</span>
         })}
       </div>
-
-    {usersList}
-    </div>
+      {props.isFetching ? <div className={s.spinner}><img src={props.spinner} alt=""/></div> : usersList}
+     </div>
   )
 
 }

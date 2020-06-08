@@ -1,3 +1,13 @@
+.spinner {
+text-align: center;
+    margin-top: 30%;
+
+}
+
+.spinner img {
+    width: 40px;
+}
+
 .pagesCounter {
 
     padding: 40px 0px 0px 0px;
