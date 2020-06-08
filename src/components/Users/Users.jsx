@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './Users.module.css';
-import ava_null from "../../assets/images/ava_null.png"
 
 const Users = (props) => {
 
@@ -41,6 +40,16 @@ const Users = (props) => {
 
 
   return (<div>
+
+      <div className={s.pagesCounter}>
+        {pages.map(p => {
+          return <span className={(props.currentPage === p) ? s.selectedPage : s.page} key={p}
+                       onClick={() => {
+                         props.onPageChanged(p)
+                       }}>
+                        {p}</span>
+        })}
+      </div>
 
     {usersList}
     </div>
