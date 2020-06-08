@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './Users.module.css';
+import Preloader from "../Common/Preloader/Preloader";
 
 const Users = (props) => {
 
@@ -50,7 +51,7 @@ const Users = (props) => {
                         {p}</span>
         })}
       </div>
-      {props.isFetching ? <div className={s.spinner}><img src={props.spinner} alt=""/></div> : usersList}
+      {props.isFetching ? <Preloader /> : usersList}
      </div>
   )
 
