@@ -1,7 +1,13 @@
 import React from 'react';
 import s from './ProfileInfo.module.css';
+import Preloader from "../../Common/Preloader/Preloader";
 
 const ProfileInfo = (props) => {
+debugger;
+  if (!props.profile ) {
+    return <Preloader />
+  }
+  else {
     return (
         <div>
             <div className={s.profileBackground}>
@@ -9,13 +15,13 @@ const ProfileInfo = (props) => {
             </div>
             <div className={s.descriptionBlock}>
                 <div className={s.avatar}>
-                    <img src="http://9878621572.myjino.ru/img/ava_1.jpg" alt=""/>
+                    <img src={props.profile.photos.large} alt=""/>
                     description
                 </div>
             </div>
         </div>)
 
-
+  }
 }
 
 export default ProfileInfo;

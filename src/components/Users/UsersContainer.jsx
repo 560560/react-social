@@ -9,8 +9,6 @@ import {
 import * as axios from "axios";
 import Users from "./Users";
 import ava_null from "../../assets/images/ava_null.png";
-import spinner from "../../assets/images/spinner.gif";
-
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -42,7 +40,6 @@ class UsersContainer extends React.Component {
     render() {
         return (
             <Users ava_null={ava_null}
-                   spinner={spinner}
                    totalUsersCount={this.props.totalUsersCount}
                    pageSize={this.props.pageSize}
                    users={this.props.users}
