@@ -1,20 +1,114 @@
-
-.descriptionBlock {
-    padding: 10px;
+.profileInfo {
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: 3fr 9fr;
 }
+
+.description {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    margin-left: 10px;
+    padding: 15px;
+}
+
+.description .userName_status {
+    border-bottom: 1px solid #e7e8ec;
+    padding-bottom: 15px;
+}
+
+
+.description .userName {
+
+
+    font-size: 24px;
+    font-weight: bold;
+
+
+}
+
+.description .status {
+    font-size: 12px;
+}
+
+.contacts {
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+    padding-top: 10px;
+
+
+}
+
+.contacts img {
+    width: 30px;
+    vertical-align:middle;
+    padding-right: 10px;
+
+}
+
+
+
+.contacts .contactIconNull {
+    padding-bottom: 10px;
+}
+
+.contacts .contactIcon {
+    padding-bottom: 10px;
+}
+
+
+.avatar {
+    text-align: center;
+
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+
+
+}
+
 .avatar img {
-    margin-top: 5px;
+    vertical-align: bottom;
+    min-width: 220px;
+    margin: 10px;
     width: 200px;
 }
 
+.sendMessageButton {
+    padding-bottom: 10px;
+
+}
+
+.sendMessageButton button {
+    width: 90%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #add8e6;
+
+}
+
+.follow {
+    padding-bottom: 10px;
+}
+
+.follow button {
+    width: 90%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #add8e6;
+}
+
 .profileBackground {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
     text-align: center;
     padding: 10px;
 
 }
 
-.profileBackground img{
-
+.profileBackground img {
+    vertical-align: bottom;
     border-radius: 5px;
     width: 100%;
 
