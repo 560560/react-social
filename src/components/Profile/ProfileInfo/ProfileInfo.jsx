@@ -6,7 +6,7 @@ import instagram from "./../../../assets/images/instagram.svg"
 import twitter from "./../../../assets/images/twitter.svg"
 import vk from "./../../../assets/images/vk.svg"
 import facebook from "./../../../assets/images/facebook.svg"
-import gitHub from "./../../../assets/images/gitHub.svg"
+import github from "./../../../assets/images/github.svg"
 import youtube from "./../../../assets/images/youtube.svg"
 import mainklink from "./../../../assets/images/mainklink.svg"
 
@@ -37,16 +37,25 @@ const ProfileInfo = (props) => {
 
                   <div className={s.contacts}>
                     <div>
-                      <div className={!props.profile.contacts.facebook ? s.contactIconNull : s.contactIcon}><img src={facebook} alt=""/>Facebook</div>
-                      <div className={!props.profile.contacts.facebook ? s.contactIconNull : s.contactIcon}><img src={website} alt=""/>Website</div>
-                      <div className={!props.profile.contacts.facebook ? s.contactIconNull : s.contactIcon}><img src={vk} alt=""/>VK</div>
-                      <div className={!props.profile.contacts.facebook ? s.contactIconNull : s.contactIcon}><img src={twitter} alt=""/>Twitter</div>
+                      <div className={s.contactItem}><img src={facebook} alt=""/>{
+                        !props.profile.contacts.facebook ? "Facebook" : <a href={props.profile.contacts.facebook}>Facebook</a>}</div>
+                      <div className={s.contactItem}><img src={website} alt=""/>{
+                        !props.profile.contacts.website ? "website" : <a href={props.profile.contacts.website}>Website</a>}</div>
+                      <div className={s.contactItem}><img src={twitter} alt=""/>{
+                        !props.profile.contacts.twitter ? "twitter" : <a href={props.profile.contacts.twitter}>Twitter</a>}</div>
+                      <div className={s.contactItem}><img src={instagram} alt=""/>{
+                        !props.profile.contacts.instagram ? "instagram" : <a href={props.profile.contacts.instagram}>Instagram</a>}</div>
+
                     </div>
                     <div>
-                      <div className={!props.profile.contacts.facebook ? s.contactIconNull : s.contactIcon}><img src={instagram} alt=""/>Instagram</div>
-                      <div className={!props.profile.contacts.facebook ? s.contactIconNull : s.contactIcon}><img src={youtube} alt=""/>YouTube</div>
-                      <div className={!props.profile.contacts.facebook ? s.contactIconNull : s.contactIcon}><img src={gitHub} alt=""/>GitHub</div>
-                      <div className={!props.profile.contacts.facebook ? s.contactIconNull : s.contactIcon}><img src={mainklink} alt=""/>MainLink</div>
+                      <div className={s.contactItem}><img src={facebook} alt=""/>{
+                        !props.profile.contacts.facebook ? "Facebook" : <a href={props.profile.contacts.facebook}>Facebook</a>}</div>
+                      <div className={s.contactItem}><img src={facebook} alt=""/>{
+                        !props.profile.contacts.facebook ? "Facebook" : <a href={props.profile.contacts.facebook}>Facebook</a>}</div>
+                      <div className={s.contactItem}><img src={facebook} alt=""/>{
+                        !props.profile.contacts.facebook ? "Facebook" : <a href={props.profile.contacts.facebook}>Facebook</a>}</div>
+                      <div className={s.contactItem}><img src={facebook} alt=""/>{
+                        !props.profile.contacts.facebook ? "Facebook" : <a href={props.profile.contacts.facebook}>Facebook</a>}</div>
                     </div>
 
                   </div>

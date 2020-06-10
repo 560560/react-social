@@ -45,16 +45,16 @@
     padding-right: 10px;
 
 }
+.contacts a {
+ text-decoration: none;
+    color: black;
 
+}
 
-
-.contacts .contactIconNull {
+.contacts .contactItem {
     padding-bottom: 10px;
 }
 
-.contacts .contactIcon {
-    padding-bottom: 10px;
-}
 
 
 .avatar {
