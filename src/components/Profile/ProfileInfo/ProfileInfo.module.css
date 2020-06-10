@@ -31,6 +31,12 @@
     font-size: 12px;
 }
 
+.contactsHeader {
+
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
 .contacts {
     display: grid;
     grid-template-columns: 6fr 6fr;
@@ -53,9 +59,25 @@
 
 .contacts .contactItem {
     padding-bottom: 10px;
+    color: #a8a8a8;
+}
+
+.contacts .contactItemGray {
+    padding-bottom: 10px;
+    color: #a8a8a8;
+    filter: grayscale(100%);
 }
 
 
+
+.job {
+font-weight: bold;
+
+}
+
+.job span {
+    font-weight: normal;
+}
 
 .avatar {
     text-align: center;
