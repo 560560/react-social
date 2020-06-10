@@ -4,7 +4,7 @@ import s from './Settings.module.css';
 
 const Settings = () => {
   return (
-    <div>
+    <div className={s.settingsWrapper}>
       Settings
     </div>
 

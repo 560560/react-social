@@ -41,7 +41,7 @@ const Users = (props) => {
     </div>)
 
 
-  return (<div>
+  return (<div className={s.users}>
 
       <div className={s.pagesCounter}>
         {pages.map(p => {
