@@ -1,13 +1,36 @@
 .header {
+    /*    position: fixed;
+        width: 1200px;*/
+
+    position: relative;
     grid-area: h;
     margin-top: 10px;
     background-color: #FFFFFF;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
     border-radius: 5px;
+
 }
 
 .header img {
     width: 40px;
     padding-top: 5px;
     padding-left: 5px;
+
+}
+
+.loginBlock {
+    float: right;
+    min-height: 100%;
+}
+
+.loginBlock a {
+
+    position: absolute;
+    top: 26%;
+    right: 15px;
+
+    font-weight: bold;
+    color: #047cb8;
+    text-decoration: none;
+    vertical-align: middle;
 }

@@ -43,36 +43,43 @@ const ProfileInfo = (props) => {
             <div className={s.contacts}>
 
               <div>
-                <div className={!props.profile.contacts.facebook ? s.contactItemGray : s.contactItem}><img src={facebook} alt=""/>{
+                <div className={!props.profile.contacts.facebook ? s.contactItemGray : s.contactItem}><img
+                  src={facebook} alt=""/>{
                   !props.profile.contacts.facebook ? "Facebook" :
                     <a href={props.profile.contacts.facebook}>Facebook</a>}</div>
 
-                <div className={!props.profile.contacts.website ? s.contactItemGray : s.contactItem}><img src={website} alt=""/>{
+                <div className={!props.profile.contacts.website ? s.contactItemGray : s.contactItem}><img src={website}
+                                                                                                          alt=""/>{
                   !props.profile.contacts.website ? "Website" : <a href={props.profile.contacts.website}>Website</a>}
                 </div>
 
                 <div className={!props.profile.contacts.vk ? s.contactItemGray : s.contactItem}><img src={vk} alt=""/>{
                   !props.profile.contacts.vk ? "VK" : <a href={props.profile.contacts.vk}>VK</a>}</div>
 
-                <div className={!props.profile.contacts.twitter ? s.contactItemGray : s.contactItem}><img src={twitter} alt=""/>{
+                <div className={!props.profile.contacts.twitter ? s.contactItemGray : s.contactItem}><img src={twitter}
+                                                                                                          alt=""/>{
                   !props.profile.contacts.twitter ? "Twitter" : <a href={props.profile.contacts.twitter}>Twitter</a>}
                 </div>
 
 
               </div>
               <div>
-                <div className={!props.profile.contacts.instagram ? s.contactItemGray : s.contactItem}><img src={instagram} alt=""/>{
+                <div className={!props.profile.contacts.instagram ? s.contactItemGray : s.contactItem}><img
+                  src={instagram} alt=""/>{
                   !props.profile.contacts.instagram ? "Instagram" :
                     <a href={props.profile.contacts.instagram}>Instagram</a>}</div>
 
-                <div className={!props.profile.contacts.youtube ? s.contactItemGray : s.contactItem}><img src={youtube} alt=""/>{
+                <div className={!props.profile.contacts.youtube ? s.contactItemGray : s.contactItem}><img src={youtube}
+                                                                                                          alt=""/>{
                   !props.profile.contacts.youtube ? "YouTube" : <a href={props.profile.contacts.youtube}>YouTube</a>}
                 </div>
 
-                <div className={!props.profile.contacts.github ? s.contactItemGray : s.contactItem}><img src={git} alt=""/>{
+                <div className={!props.profile.contacts.github ? s.contactItemGray : s.contactItem}><img src={git}
+                                                                                                         alt=""/>{
                   !props.profile.contacts.github ? "GitHub" : <a href={props.profile.contacts.github}>GitHub</a>}</div>
 
-                <div className={!props.profile.contacts.mainklink ? s.contactItemGray : s.contactItem}><img src={mainklink} alt=""/>{
+                <div className={!props.profile.contacts.mainklink ? s.contactItemGray : s.contactItem}><img
+                  src={mainklink} alt=""/>{
                   !props.profile.contacts.mainklink ? "MainLink" :
                     <a href={props.profile.contacts.mainklink}>MainLink</a>}</div>
               </div>
