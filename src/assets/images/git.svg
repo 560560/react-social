@@ -8,31 +8,31 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   sodipodi:docname="git.svg"
-   id="svg10"
+   sodipodi:docname="gitHub.svg"
+   id="svg9"
    xml:space="preserve"
-   viewBox="0 0 199.67999 199.67999"
-   height="199.67999"
-   width="199.67999"
+   viewBox="0 0 199.89801 199.43303"
+   height="199.43303"
+   width="199.89801"
    version="1.1"><metadata
-   id="metadata14"><rdf:RDF><cc:Work
+   id="metadata13"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
          rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><sodipodi:namedview
-   inkscape:current-layer="svg10"
-   inkscape:window-maximized="0"
-   inkscape:window-y="0"
-   inkscape:window-x="0"
-   inkscape:cy="99.84"
-   inkscape:cx="99.84"
+   inkscape:current-layer="svg9"
+   inkscape:window-maximized="1"
+   inkscape:window-y="-8"
+   inkscape:window-x="-8"
+   inkscape:cy="99.73393"
+   inkscape:cx="99.949005"
    inkscape:zoom="2.125"
    fit-margin-bottom="0"
    fit-margin-right="0"
    fit-margin-left="0"
    fit-margin-top="0"
    showgrid="false"
-   id="namedview12"
-   inkscape:window-height="480"
-   inkscape:window-width="820"
+   id="namedview11"
+   inkscape:window-height="1017"
+   inkscape:window-width="1920"
    inkscape:pageshadow="2"
    inkscape:pageopacity="0"
    guidetolerance="10"
@@ -47,13 +47,13 @@
    id="defs4">
 </defs>
 <g
-   id="g8"
-   transform="matrix(0.13,0,0,0.13,99.84,99.84)">
+   id="Git"
+   transform="matrix(8.33,0,0,8.33,99.949005,99.73393)">
 <path
    id="path6"
    stroke-linecap="round"
-   d="m 710,1308 q 0,66 -93,66 -107,0 -107,-63 0,-64 98,-64 102,0 102,61 z M 674,842 q 0,85 -74,85 -77,0 -77,-84 0,-90 77,-90 36,0 55,25.5 19,25.5 19,63.5 z M 840,767 V 642 q -78,29 -135,29 -50,-29 -110,-29 -86,0 -145,57 -59,57 -59,143 0,50 29.5,102 29.5,52 73.5,67 v 3 q -38,17 -38,85 0,53 41,77 v 3 q -113,37 -113,139 0,45 20,78.5 20,33.5 54,51 34,17.5 72,25.5 38,8 81,8 224,0 224,-188 0,-67 -48,-99 -48,-32 -126,-46 -27,-5 -51.5,-20.5 Q 585,1112 585,1088 q 0,-44 49,-52 77,-15 122,-70 45,-55 45,-134 0,-24 -10,-52 37,-9 49,-13 z m 59,419 h 137 q -2,-27 -2,-82 V 717 q 0,-46 2,-69 H 899 q 3,23 3,71 v 392 q 0,50 -3,75 z m 509,-16 v -121 q -30,21 -68,21 -53,0 -53,-82 V 763 h 52 q 9,0 26.5,1 17.5,1 26.5,1 V 648 h -105 q 0,-82 3,-102 h -140 q 4,24 4,55 v 47 h -60 v 117 q 36,-3 37,-3 3,0 11,0.5 8,0.5 12,0.5 v 2 h -2 v 217 q 0,37 2.5,64 2.5,27 11.5,56.5 9,29.5 24.5,48.5 15.5,19 43.5,31 28,12 66,12 64,0 108,-24 z M 1052,464 q 0,-36 -24,-63.5 -24,-27.5 -60,-27.5 -36,0 -60.5,27 -24.5,27 -24.5,64 0,36 25,62.5 25,26.5 60,26.5 35,0 59.5,-27 24.5,-27 24.5,-62 z m 612,-48 v 960 q 0,119 -84.5,203.5 Q 1495,1664 1376,1664 H 416 Q 297,1664 212.5,1579.5 128,1495 128,1376 V 416 Q 128,297 212.5,212.5 297,128 416,128 h 960 q 119,0 203.5,84.5 Q 1664,297 1664,416 Z"
-   transform="translate(-896,-896)"
+   d="M 23.56,10.93 13.06,0.43 a 1.54,1.54 0 0 0 -2.12,0 l -2,2 a 0.5,0.5 0 0 0 0,0.71 L 10.74,5 A 0.5,0.5 0 0 0 11.28,5.11 2,2 0 0 1 14,7 2,2 0 0 1 13.85,7.74 0.5,0.5 0 0 0 13.96,8.28 L 15.72,10 A 0.5,0.5 0 0 0 16.26,10.11 2,2 0 1 1 15,12 2,2 0 0 1 15.14,11.29 0.5,0.5 0 0 0 15.03,10.76 L 13.35,9.07 A 0.5,0.5 0 0 0 12.5,9.42 v 5.28 a 0.5,0.5 0 0 0 0.3,0.46 2,2 0 1 1 -1.6,0 0.5,0.5 0 0 0 0.3,-0.46 V 9.28 A 0.5,0.5 0 0 0 11.2,8.82 2,2 0 0 1 10.14,6.26 0.5,0.5 0 0 0 10,5.73 L 8.19,3.88 a 0.5,0.5 0 0 0 -0.71,0 l -7,7 a 1.5,1.5 0 0 0 0,2.12 l 10.5,10.51 a 1.5,1.5 0 0 0 2.12,0 L 23.6,13 a 1.5,1.5 0 0 0 0,-2.12 z"
+   transform="translate(-12.04,-11.98)"
    style="opacity:1;fill:#add8e6;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
 </g>
 </svg>

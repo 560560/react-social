@@ -6,7 +6,7 @@ import instagram from "./../../../assets/images/instagram.svg"
 import twitter from "./../../../assets/images/twitter.svg"
 import vk from "./../../../assets/images/vk.svg"
 import facebook from "./../../../assets/images/facebook.svg"
-import github from "./../../../assets/images/github.svg"
+import git from "../../../assets/images/git.svg"
 import youtube from "./../../../assets/images/youtube.svg"
 import mainklink from "./../../../assets/images/mainklink.svg"
 import ava_null from "./../../../assets/images/ava_null.png"
@@ -69,7 +69,7 @@ const ProfileInfo = (props) => {
                   !props.profile.contacts.youtube ? "YouTube" : <a href={props.profile.contacts.youtube}>YouTube</a>}
                 </div>
 
-                <div className={!props.profile.contacts.github ? s.contactItemGray : s.contactItem}><img src={github} alt=""/>{
+                <div className={!props.profile.contacts.github ? s.contactItemGray : s.contactItem}><img src={git} alt=""/>{
                   !props.profile.contacts.github ? "GitHub" : <a href={props.profile.contacts.github}>GitHub</a>}</div>
 
                 <div className={!props.profile.contacts.mainklink ? s.contactItemGray : s.contactItem}><img src={mainklink} alt=""/>{

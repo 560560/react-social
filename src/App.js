@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import './App.css';
 import Header from "./components/Header/Header";
 import News from "./components/News/News";
@@ -11,7 +11,7 @@ import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 
 
-const App = (props) => {
+const App = () => {
 
     return (
         <div className='app-wrapper'>
@@ -20,7 +20,7 @@ const App = (props) => {
             <div className='app-wrapper-content'>
                 <Route path='/dialogs' render={() => <DialogsContainer/>}/>
 
-                <Route path='/profile' render={() => <ProfileContainer/>}/>
+                <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
 
                 <Route path='/users' render={() => <UsersContainer/>}/>
 
