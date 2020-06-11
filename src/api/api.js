@@ -1,29 +1,25 @@
 import * as axios from "axios";
 
-export const getUsers = (pageSize, currentPage) => {
-  return axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${pageSize} &page=${currentPage}`,
-    {
-      withCredentials: true
-    }).then(response => response.data)
-}
-export const follow = (id, apiKey = "190bf90d-6cb7-4e1b-8685-f3cf49bb2a17") => {
-  return axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${id}`, {}, {
+
+let instance = axios.create({
+    baseURL: "https://social-network.samuraijs.com/api/1.0/",
     withCredentials: true,
-    headers: {
-      "API-KEY": apiKey
-    }})
+    headers: {"API-KEY": "190bf90d-6cb7-4e1b-8685-f3cf49bb2a17"}
+});
+
+
+export const getUsers = (pageSize, currentPage) => {
+    return instance.get(`users?count=${pageSize} &page=${currentPage}`)
+        .then(response => response.data)
+}
+export const follow = (id) => {
+    return instance.post(`follow/${id}`, {})
 
 }
 export const unFollow = (id, apiKey = "190bf90d-6cb7-4e1b-8685-f3cf49bb2a17") => {
-  return axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${id}`, {
-    withCredentials: true,
-    headers: {
-      "API-KEY": apiKey
-    }})
+    return instance.delete(`follow/${id}`)
 
 }
 export const authorization = () => {
-  return axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
-    withCredentials: true
-  }).then(response => response.data)
+    return instance.get(`auth/me`).then(response => response.data)
 }
