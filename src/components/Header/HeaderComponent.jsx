@@ -3,13 +3,13 @@ import Header from "./Header";
 import {connect} from "react-redux";
 import * as axios from "axios";
 import  {setAuthUserData} from "../../redux/auth-reducer";
-import {authorization} from "../../api/api";
+import {userAPI} from "../../api/api";
 
 
 class HeaderContainer extends React.Component {
 
   componentDidMount() {
-    authorization().then(responce => {if (responce.resultCode === 0) {this.props.setUserData(responce.data);}})
+    userAPI.authorization().then(responce => {if (responce.resultCode === 0) {this.props.setUserData(responce.data);}})
   }
 
   render() {
