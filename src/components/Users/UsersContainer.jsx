@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {setCurrentPage, getUsers, follow, unfollow} from "../../redux/users-reducer";
 import Users from "./Users";
 import ava_null from "../../assets/images/ava_null.png";
+import {compose} from "redux";
 
 
 class UsersContainer extends React.Component {
@@ -48,6 +49,7 @@ let mapStateToProps = (state) => {
 
 }
 
-export default connect(mapStateToProps, {
-    setCurrentPage, getUsers, follow, unfollow
-})(UsersContainer);
+
+export default compose(connect(mapStateToProps, {setCurrentPage, getUsers, follow, unfollow})
+)
+(UsersContainer);
