@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import {connect} from "react-redux";
-import {authorization, setAuthUserData} from "../../redux/auth-reducer";
+import {authorization} from "../../redux/auth-reducer";
 
 
 

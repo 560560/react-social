@@ -26,9 +26,9 @@ export const setAuthUserData = (data) => ({type: SET_USER_DATA, data})
 
 
 export const authorization = () => (dispatch) => {
-    authAPI.me().then(response => response.data).then(responce => {
-        if (responce.resultCode === 0) {
-            dispatch(setAuthUserData(responce.data));
+    authAPI.me().then(response => response.data).then(response => {
+        if (response.resultCode === 0) {
+            dispatch(setAuthUserData(response.data));
         }
     })
 }

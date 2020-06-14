@@ -14,7 +14,7 @@
 
 .description .userName_status {
     border-bottom: 1px solid #e7e8ec;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
 }
 
 
@@ -32,37 +32,38 @@
 }
 
 .contactsHeader {
-
+    display: grid;
+    grid-template-columns: 6fr 6fr;
     padding-top: 10px;
     padding-bottom: 5px;
 }
 
-.contacts {
+.about {
     display: grid;
-    grid-template-columns: 6fr 6fr;
+    grid-template-columns: 6fr 3fr 3fr;
     padding-top: 10px;
 
 
 }
 
-.contacts img {
+.about img {
     width: 30px;
     vertical-align:middle;
     padding-right: 10px;
 
 }
-.contacts a {
+.about a {
  text-decoration: none;
     color: black;
 
 }
 
-.contacts .contactItem {
+.about .contactItem {
     padding-bottom: 10px;
     color: #a8a8a8;
 }
 
-.contacts .contactItemGray {
+.about .contactItemGray {
     padding-bottom: 10px;
     color: #a8a8a8;
     filter: grayscale(100%);

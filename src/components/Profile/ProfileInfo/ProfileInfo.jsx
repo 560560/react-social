@@ -10,6 +10,7 @@ import git from "../../../assets/images/git.svg"
 import youtube from "./../../../assets/images/youtube.svg"
 import mainklink from "./../../../assets/images/mainklink.svg"
 import ava_null from "./../../../assets/images/ava_null.png"
+import ProfileStatus from "../ProfileStatus";
 
 
 const ProfileInfo = (props) => {
@@ -36,11 +37,18 @@ const ProfileInfo = (props) => {
 
                         <div className={s.userName_status}>
                             <div className={s.userName}>{props.profile.fullName}</div>
-                            <div className={s.status}>{props.profile.aboutMe}</div>
+                            {props.url === "/profile" ?
+                                <ProfileStatus status={props.userStatus} updateUserStatus={props.updateUserStatus}
+                                               myId={props.myId}/>
+                                : <div>{props.userStatus}</div>}
                         </div>
 
-                        <div className={s.contactsHeader}>My contacts:</div>
-                        <div className={s.contacts}>
+                        <div className={s.contactsHeader}>
+                            <div>Privat information</div>
+                            <div>My contacts:</div>
+                        </div>
+                        <div className={s.about}>
+                            <div className={s.aboutMe}>About myself: {props.profile.aboutMe}</div>
                             <div>
                                 <div className={!props.profile.contacts.facebook ? s.contactItemGray : s.contactItem}>
                                     <img
