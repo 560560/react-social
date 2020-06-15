@@ -26,12 +26,10 @@ const ProfileInfo = (props) => {
                 <div className={s.profileInfo}>
                     <div className={s.avatar}>
                         <img src={!props.profile.photos.large ? ava_null : props.profile.photos.large} alt=""/>
-                        <div className={s.sendMessageButton}>
-                            <button>Send message</button>
-                        </div>
-                        <div className={s.follow}>
-                            <button>Follow</button>
-                        </div>
+                        <div className={s.sendMessageButton}><button>Send message</button></div>
+                        {props.isFollowed
+                            ? <div className={s.isFollow}><button onClick={()=> {props.unfollowFromProfile(props.userId)}}>Unfollow</button></div>
+                            : <div className={s.isNotFollow}><button onClick={()=> {props.followFromProfile(props.userId)}}>Follow</button></div>}
                     </div>
                     <div className={s.description}>
 

@@ -66,7 +66,7 @@ const usersReducer = (state = initialState, action) => {
 
     }
 }
-
+// Action Creators //
 export const followTo = (userID) => ({type: FOLLOW, userID})
 export const unfollowFrom = (userID) => ({type: UNFOLLOW, userID})
 export const setUsers = (users) => ({type: SET_USERS, users})
@@ -75,6 +75,7 @@ export const setCurrentPage = (pageNumber) => ({type: SET_CURRENT_PAGE, pageNumb
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 export const toggleIsFollowingProgress = (isFetching, id) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, id})
 
+// Thunk Creators //
 export const getUsers = (pageSize, currentPage) => (dispatch) => {
     dispatch (toggleIsFetching(true));
     userAPI.getUsers(pageSize, currentPage)
@@ -85,7 +86,7 @@ export const getUsers = (pageSize, currentPage) => (dispatch) => {
             dispatch (setUsersCount(data.totalCount));
         })
 }
-export const follow = (id) => (dispatch) => {
+export const unfollow = (id) => (dispatch) => {
     dispatch (toggleIsFollowingProgress(true, id))
     userAPI.unFollow(id).then(response => {
         if (response.data.resultCode === 0) {
@@ -95,7 +96,7 @@ export const follow = (id) => (dispatch) => {
     })
 
 }
-export const unfollow = (id) => (dispatch) => {
+export const follow = (id) => (dispatch) => {
     dispatch (toggleIsFollowingProgress(true, id))
     userAPI.follow(id).then(response => {
         if (response.data.resultCode === 0) {

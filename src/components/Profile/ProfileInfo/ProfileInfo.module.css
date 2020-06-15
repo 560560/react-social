@@ -110,11 +110,21 @@ font-weight: bold;
 
 }
 
-.follow {
+.isFollow {
     padding-bottom: 10px;
 }
 
-.follow button {
+.isFollow button {
+    width: 90%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+.isNotFollow {
+    padding-bottom: 10px;
+}
+
+.isNotFollow button {
     width: 90%;
     height: 30px;
     border-radius: 5px;

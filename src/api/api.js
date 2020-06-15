@@ -15,18 +15,13 @@ export const userAPI = {
     follow(id) {
         return instance.post(`follow/${id}`, {})
     },
-    unFollow(id, apiKey = "190bf90d-6cb7-4e1b-8685-f3cf49bb2a17") {
+    unFollow(id) {
         return instance.delete(`follow/${id}`)
     },
     getUserProfile(userId) {
         return instance.get(`profile/` + userId)
-    },
-    getUserStatus(userId) {
-        return instance.get(`/profile/status/${userId}`)
-    },
-    setNewUserStatus(status) {
-        return instance.put('/profile/status', {status: status})
     }
+
 }
 
 export const authAPI = {
@@ -35,3 +30,21 @@ export const authAPI = {
     },
 }
 
+export const profileAPI ={
+    getUserStatus(userId) {
+        return instance.get(`/profile/status/${userId}`)
+    },
+    updateStatus(status) {
+        return instance.put('/profile/status', {status: status})
+    },
+    getFollowStatus(userId) {
+        return instance.get(`/follow/${userId}`)
+    },
+    followFromProfile(id) {
+        return instance.post(`follow/${id}`, {})
+    },
+    unfollowFromProfile(id) {
+        return instance.delete(`follow/${id}`)
+    }
+
+}

@@ -2,7 +2,7 @@ import React from "react";
 
 
 class ProfileStatus extends React.Component {
-    newStatusElement = React.createRef();
+
     state = {
         editMode: false,
         localStatus: this.props.status
@@ -16,8 +16,14 @@ class ProfileStatus extends React.Component {
         this.setState({editMode: false})
     }
 
-    onStatusChange =  () => {
-        this.setState({localStatus: this.newStatusElement.current.value})
+    onStatusChange =  (e) => {
+        this.setState({localStatus: e.currentTarget.value})
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.status !== this.props.status) {
+        this.setState({localStatus: this.props.status})
+    }
     }
 
     render() {
@@ -26,7 +32,10 @@ class ProfileStatus extends React.Component {
                 {(!this.props.status && !this.state.editMode )&& <span onClick={this.enableEditMode}>Change status</span>}
                 {!this.state.editMode && <span onDoubleClick={this.enableEditMode}>{this.props.status}</span>}
                 {this.state.editMode &&
-                <input ref={this.newStatusElement} value={this.state.localStatus} autoFocus={true} onChange={this.onStatusChange} onBlur={this.disableEditMode} type="text"></input>}
+                <input value={this.state.localStatus}
+                       autoFocus={true}
+                       onChange={this.onStatusChange}
+                       onBlur={this.disableEditMode} type="text"/>}
             </div>
         );
     }
