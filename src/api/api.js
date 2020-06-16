@@ -28,7 +28,15 @@ export const authAPI = {
     me() {
         return instance.get(`auth/me`)
     },
+    login (loginObject) {
+        console.log(loginObject)
+    return instance.post(`auth/login`, {email: loginObject.email, password: loginObject.password, rememberMe: loginObject.rememberMe})},
+    logout () {
+    return instance.delete(`auth/login`)}
 }
+
+
+
 
 export const profileAPI ={
     getUserStatus(userId) {

@@ -35,7 +35,7 @@ const ProfileInfo = (props) => {
 
                         <div className={s.userName_status}>
                             <div className={s.userName}>{props.profile.fullName}</div>
-                            {props.url === "/profile/8737" ?
+                            {props.url === "/profile" ?
                                 <ProfileStatus status={props.userStatus} updateUserStatus={props.updateUserStatus}
                                                myId={props.myId}/>
                                 : <div>{props.userStatus}</div>}

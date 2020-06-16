@@ -9,33 +9,33 @@ import NavbarContainer from "./components/Navbar/NavbarContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderComponent";
-import Login from "./components/Login/Login";
+import LoginContainer from "./components/Login/LoginContainer";
 
 
 const App = () => {
 
-    return (
-        <div className='app-wrapper'>
-            <HeaderContainer/>
-            <NavbarContainer/>
-            <div className='app-wrapper-content'>
-                <Route path='/dialogs' render={() => <DialogsContainer/>}/>
+  return (
+    <div className='app-wrapper'>
+      <HeaderContainer/>
+      <NavbarContainer/>
+      <div className='app-wrapper-content'>
+        <Route path='/dialogs' render={() => <DialogsContainer/>}/>
 
-                <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
+        <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
 
-                <Route path='/users' render={() => <UsersContainer/>}/>
+        <Route path='/users' render={() => <UsersContainer/>}/>
 
-                <Route path='/news' component={News}/>
+        <Route path='/news' component={News}/>
 
-                <Route path='/music' component={Music}/>
+        <Route path='/music' component={Music}/>
 
-                <Route path='/settings' component={Settings}/>
+        <Route path='/settings' component={Settings}/>
 
-                <Route path='/login' component={Login}/>
+        <Route path='/login' component={LoginContainer}/>
 
-            </div>
-        </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default App;

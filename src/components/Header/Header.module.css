@@ -23,14 +23,47 @@
     min-height: 100%;
 }
 
-.loginBlock a {
-
+.unlogined {
     position: absolute;
-    top: 26%;
+    top: 20%;
     right: 15px;
+}
 
+.unlogined a {
     font-weight: bold;
     color: #047cb8;
     text-decoration: none;
     vertical-align: middle;
+    cursor: pointer;
+}
+
+.logined {
+    position: absolute;
+    top: 20%;
+    right: 15px;
+
+}
+
+.logined a {
+    font-weight: bold;
+    color: #047cb8;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.logined span {
+    font-weight: bold;
+    color: rgba(4, 124, 184, 0.32);
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.logined span:hover {
+    font-weight: bold;
+    color: #047cb8;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
 }

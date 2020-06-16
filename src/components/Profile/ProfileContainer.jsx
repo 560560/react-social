@@ -27,10 +27,6 @@ class ProfileContainer extends React.Component {
 
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-
-  }
-
   render() {
 
     return (
