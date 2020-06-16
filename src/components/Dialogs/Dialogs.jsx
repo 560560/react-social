@@ -2,21 +2,15 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-
+import SendMessageReduxForm from "./SendMessageForm/SendMessageForm";
 
 
 const Dialogs = (props) => {
 
-  let newMessageElement = React.createRef();
-
-  let messageChange = () => {
-    let messageText = newMessageElement.current.value;
-    props.messageChange(messageText);
+  let addNewMessage = (formData) => {
+    props.sendMessage(formData.messageText)
   }
 
-  let sendMessage = () => {
-    props.sendMessage()
-  }
 
   let messagesElements = props.messagesData.map(m => <Message key={m.id}
                                                               messageItem={m.message}
@@ -35,19 +29,10 @@ const Dialogs = (props) => {
       <div className={s.dialogsItems}>
         {dialogsElements}
       </div>
-
-      <div className={s.dialogBlock}>
+      <div className={s.messagesBlock}>
         {messagesElements}
-        <div className={s.addMessage}>
-          <textarea onChange={messageChange}
-                    ref={newMessageElement}
-                    value={props.messageTexArea}
-                    placeholder="Your message"/>
-          <button onClick={sendMessage}>Send</button>
-        </div>
+        <div><SendMessageReduxForm onSubmit={addNewMessage}/></div>
       </div>
-
-
     </div>
   );
 

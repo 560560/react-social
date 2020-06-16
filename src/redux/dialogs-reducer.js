@@ -1,8 +1,7 @@
 const SEND_MESSAGE = "SEND-MESSAGE";
-const UPDATE_TEXTAREA_MESSAGES = "UPDATE-TEXTAREA-MESSAGES";
+
 
 let initialState = {
-  messageTexArea: "",
   dialogsData: [
     {id: 1, name: "Anton", avatar: "http://9878621572.myjino.ru/img/ava_1.jpg"},
     {id: 2, name: "Elena", avatar: "http://9878621572.myjino.ru/img/ava_2.jpg"},
@@ -64,14 +63,8 @@ const dialogsReducer = (state = initialState, action) => {
 
   switch (action.type) {
 
-    case UPDATE_TEXTAREA_MESSAGES: {
-      return {
-        ...state,
-        messageTexArea: action.messageText
-      }
-    }
     case SEND_MESSAGE: {
-      if (state.messageTexArea === "") {
+      if (action.messageText === "" || !action.messageText) {
         return state
       }
       let newMessage = {
@@ -80,12 +73,11 @@ const dialogsReducer = (state = initialState, action) => {
         ownerAva: "http://9878621572.myjino.ru/img/ava_1.jpg",
         apponentsName: "Mihail",
         apponentsAva: "http://9878621572.myjino.ru/img/ava_3.jpg",
-        message: state.messageTexArea,
+        message: action.messageText,
         date: "Date()"
       }
       return {
         ...state,
-        messageTexArea: "",
         messagesData: [...state.messagesData, newMessage]
       }
 
@@ -96,11 +88,13 @@ const dialogsReducer = (state = initialState, action) => {
   }
 }
 
-export const sendMessageActionCreater = () => {
-  return {type: SEND_MESSAGE}
+
+// Action Creators //
+export const sendMessageActionCreater = (messageText) => {
+  return {type: SEND_MESSAGE, messageText}
 };
-export const updateTextareaMessagesActionCreater = (messageText) => {
-  return {type: UPDATE_TEXTAREA_MESSAGES, messageText: messageText}
-};
+
+
+// Thunk Creators //
 
 export default dialogsReducer;

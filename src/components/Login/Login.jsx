@@ -3,7 +3,7 @@ import LoginReduxForm from "./LoginForm";
 
 const Login = (props) => {
   const onSubmit = (formData) => {
-    props.loginMe({email: formData.login, password: formData.password, rememberMe: formData.rememberMe})
+    props.loginMe({...formData})
   }
   return (
     <div>
