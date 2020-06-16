@@ -1,5 +1,5 @@
 import MyPosts from "./MyPosts";
-import {addPostActionCreater, updateTextareaMyPostsDataActionCreater} from "../../../redux/profile-reducer";
+import {addPostActionCreater} from "../../../redux/profile-reducer";
 import {connect} from "react-redux";
 
 let mapStateToProps = (state) => {
@@ -10,12 +10,8 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
   return {
-    postChange: (messageText) => {
-      let action = updateTextareaMyPostsDataActionCreater(messageText);
-      dispatch(action)
-    },
-    addPost: () => {
-      let action = addPostActionCreater();
+    addPost: (postText) => {
+      let action = addPostActionCreater(postText);
       dispatch(action);
     }
   }

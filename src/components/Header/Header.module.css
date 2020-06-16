@@ -11,7 +11,7 @@
 
 }
 
-.header img {
+.header .logo img {
     width: 40px;
     padding-top: 5px;
     padding-left: 5px;
@@ -44,7 +44,7 @@
 
 }
 
-.logined a {
+.logined  a {
     font-weight: bold;
     color: #047cb8;
     text-decoration: none;
@@ -52,18 +52,25 @@
     cursor: pointer;
 }
 
-.logined span {
-    font-weight: bold;
-    color: rgba(4, 124, 184, 0.32);
-    text-decoration: none;
+.logined img {
     vertical-align: middle;
     cursor: pointer;
+    height: 25px;
+    padding-left: 10px;
+
+    -moz-transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+    opacity:1;
+    filter:alpha(opacity=100);
+
+
 }
 
-.logined span:hover {
-    font-weight: bold;
-    color: #047cb8;
-    text-decoration: none;
-    vertical-align: middle;
-    cursor: pointer;
+
+.logined img:hover {
+    opacity:0.5;
+    filter:alpha(opacity=50);
 }

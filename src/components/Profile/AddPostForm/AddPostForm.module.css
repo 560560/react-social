@@ -1,0 +1,14 @@
+.addPost {
+    display: grid;
+    grid-template-columns: 9fr 2fr 1fr;
+}
+.addPost textarea{
+    min-width: 100%;
+}
+
+.addPost button {
+    margin-left: 30px;
+    height: 35px;
+    width: 91px;
+
+}

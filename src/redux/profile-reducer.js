@@ -12,7 +12,6 @@ let initialState = {
   profile: null,
   isFollowed: false,
   userStatus: "",
-  postTextArea: "",
   isLoading: true,
   postsData: [
     {id: 1, message: 'Hi, how are you?', likesCount: 15},
@@ -24,24 +23,17 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
 
   switch (action.type) {
-    case UPDATE_TEXTAREA_MY_POSTS_DATA: {
-      return {
-        ...state,
-        postTextArea: action.messageText
-      }
-    }
     case ADD_POST: {
-      if (state.postTextArea === "") {
+      if (action.postText === "" || !action.postText ) {
         return state;
       }
       let newPost = {
-        id: 2,
-        message: state.postTextArea,
+        id: 3,
+        message: action.postText,
         likesCount: 0
       };
       return {
         ...state,
-        postTextArea: "",
         postsData: [...state.postsData, newPost]
       };
     }
@@ -66,10 +58,8 @@ const profileReducer = (state = initialState, action) => {
 
 }
 // Action Creators //
-export const addPostActionCreater = () => ({type: ADD_POST});
-export const updateTextareaMyPostsDataActionCreater = (messageText) => {
-  return {type: UPDATE_TEXTAREA_MY_POSTS_DATA, messageText: messageText}
-};
+export const addPostActionCreater = (postText) => ({type: ADD_POST, postText});
+
 const setUserProfile = (profile) => {
   return {type: SET_USER_PROFILE, profile}
 };
@@ -97,8 +87,6 @@ export const getUserProfile = (userId) => (dispatch) => {
 export const getUserStatus = (userId) => (dispatch) => {
   profileAPI.getUserStatus(userId).then(response => {
     dispatch(setUserStatus(response.data));
-
-
   })
 }
 export const updateUserStatus = (status) => (dispatch) => {
