@@ -107,8 +107,20 @@ font-weight: bold;
     height: 30px;
     border-radius: 5px;
     background-color: #add8e6;
-
 }
+
+.editPage {
+    padding-bottom: 10px;
+}
+
+
+.editPage button {
+    width: 90%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #add8e6;
+}
+
 
 .isFollow {
     padding-bottom: 10px;
@@ -124,12 +136,26 @@ font-weight: bold;
     padding-bottom: 10px;
 }
 
+
 .isNotFollow button {
     width: 90%;
     height: 30px;
     border-radius: 5px;
     background-color: #add8e6;
 }
+
+.addPhoto {
+    padding-bottom: 10px;
+}
+.addPhoto button {
+    width: 90%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #add8e6;
+}
+
+
+
 
 .profileBackground {
     background-color: #FFFFFF;

@@ -24,9 +24,6 @@ const profileReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case ADD_POST: {
-      if (action.postText === "" || !action.postText ) {
-        return state;
-      }
       let newPost = {
         id: 3,
         message: action.postText,
