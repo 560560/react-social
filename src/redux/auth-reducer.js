@@ -26,7 +26,7 @@ const authReducer = (state = initialState, action) => {
 }
 // Action Creators //
 const setAuthUserData = (data) => ({type: SET_USER_DATA, data})
-const logining = (isAuth) => ({type: LOGINING}, isAuth)
+const logining = (isAuth) => ({type: LOGINING, isAuth})
 
 // Thunk Creators //
 export const authorization = () => (dispatch) => {
@@ -37,16 +37,28 @@ export const authorization = () => (dispatch) => {
     })
 }
 export const loginMe = (loginObject) => (dispatch) => {
+    console.log(loginObject)
     authAPI.login(loginObject).then(response => {
-        if (response.resultCode === 0) {
+        if (response.data.resultCode === 0) {
             dispatch (logining(true))
+            authAPI.me().then(response => response.data).then(response => {
+                if (response.resultCode === 0) {
+                    dispatch(setAuthUserData(response.data));
+                }
+            })
+
         }
     })
 }
 export const loginOut= () => (dispatch) => {
     authAPI.logout().then(response => {
-        if (response.resultCode === 0) {
+        if (response.data.resultCode === 0) {
             dispatch (logining(false))
+            authAPI.me().then(response => response.data).then(response => {
+                if (response.resultCode === 0) {
+                    dispatch(setAuthUserData(response.data));
+                }
+            })
         }
     })
 }
