@@ -1,0 +1,64 @@
+.login, .password, .rememberMe {
+    padding-bottom: 20px;
+}
+
+
+.login label {
+    padding-right: 100px;
+    vertical-align: middle;
+}
+
+.password label {
+    padding-right: 65px;
+}
+
+.rememberMe label {
+    padding-right: 13px;
+}
+
+input {
+    display: inline-block;
+    vertical-align: middle;
+    width: 180px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #000;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #347186;
+    border-radius: 10px;
+}
+
+label {
+    font-weight: bold;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.rememberMe input {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 5px;
+}
+
+
+.button {
+    position: absolute;
+    display: block;
+    left: 512px;
+    top: 263px;
+
+
+
+}
+
+.button button {
+    border: 1px solid #347186;
+    color: #000;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 5px 40px 5px 40px;
+    background-color: #add8e6;
+
+}

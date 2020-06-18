@@ -1,23 +1,51 @@
 import React from "react";
-import {Field, reduxForm} from "redux-form";
-import {Input} from "../Common/FormsControls/FormsControls";
-import {maxLengthCreator, required} from "../../utils/validators/validators";
+import s from "./Login.module.css"
+import * as Yup from "yup"
+import {Formik, Form, Field, ErrorMessage} from "formik"
+import FormErrorMessage from "../Common/FormsControls/FormErrorMessage";
 
-const maxLength30 = maxLengthCreator (30);
+let validationSchema = Yup.object({
+    login: Yup.string().required("Field is required").email("Invalid email format"),
+    password: Yup.string().required("Field is required")
+})
+let initValue = {
+    login: "",
+    password: "",
+    remeberMe: false
+}
 
 const LoginForm = (props) => {
-  return (
-    <form onSubmit={props.handleSubmit}>
-    <div><Field name={"login"} component={Input} placeholder={"Login"}
-                validate={[required, maxLength30]}/> </div>
-    <div><Field name={"password"} component={Input} placeholder={"Password"}
-                validate={[required, maxLength30]}/> </div>
-    <div><Field name={"rememberMe"} component={Input} type="checkbox"/>Remember me</div>
-    <div><button>Login</button></div>
-  </form>
-  )
+
+    return (
+            <Formik initialValues={initValue} onSubmit={props.onSubmit} validationSchema={validationSchema}>
+
+                <Form>
+
+                    <div className={s.login}>
+                        <label htmlFor="login">Login</label>
+                        <Field type="text" name="login" id="login" placeholder="Your e-mail"/>
+                        <ErrorMessage name="login" component={FormErrorMessage}/>
+                    </div>
+
+                    <div className={s.password}>
+                        <label htmlFor="password">Password</label>
+                        <Field type="text" name="password" id="password" placeholder="Your password"/>
+                        <ErrorMessage name="password" component={FormErrorMessage}/>
+                    </div>
+
+                    <div className={s.rememberMe}>
+                        <label htmlFor="rememberMe">Remember me</label>
+                        <Field type="checkbox" id="rememberMe" name="rememberMe"/>
+                    </div>
+
+                    <div className={s.button}>
+                        <button type='submit'>Login</button>
+                    </div>
+
+                </Form>
+            </Formik>
+    )
 
 }
 
-const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
-export default LoginReduxForm
+export default LoginForm

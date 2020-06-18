@@ -1,0 +1,11 @@
+.errorMessageBlock {
+    color: red;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.errorMessageBlock img {
+    height:20px;
+vertical-align: middle;
+    padding-left: 5px;
+}
