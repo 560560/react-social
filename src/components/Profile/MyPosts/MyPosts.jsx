@@ -1,12 +1,13 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from "./Post/Post";
-import AddPostReduxForm from "../AddPostForm/AddPostForm";
+import AddPostForm from "../AddPostForm/AddPostForm";
 
 
 
 const MyPosts = (props) => {
   let addPost = (formData) => {
+    console.log(formData)
     props.addPost (formData.postText)
   }
 
@@ -15,7 +16,7 @@ const MyPosts = (props) => {
   return (
     <div className={s.postsBlock}>
       My posts
-      <AddPostReduxForm onSubmit={addPost} />
+      <AddPostForm onSubmit={addPost} />
       <div className={s.posts}>
         {postsElements}
       </div>

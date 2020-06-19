@@ -1,14 +1,17 @@
 .addPost {
-    display: grid;
-    grid-template-columns: 9fr 2fr 1fr;
+display: inline-block;
 }
 .addPost textarea{
-    min-width: 100%;
+    min-width: 600px;
+    vertical-align: middle;
 }
 
-.addPost button {
-    margin-left: 30px;
+
+
+.button button {
+
     height: 35px;
     width: 91px;
 
 }
+
