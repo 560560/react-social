@@ -11,7 +11,7 @@ const Login = (props) => {
   return (
     <div>
       <h1>Login</h1>
-     <LoginForm onSubmit={onSubmit} wrongAuth={props.wrongAuth}/>
+     <LoginForm onSubmit={onSubmit} wrongAuth={props.wrongAuth} errorMessage={props.errorMessage}/>
 
     </div>
 

@@ -6,7 +6,8 @@ let mapStateToProps =  (state) => {
   return {
   isAuth: state.auth.isAuth,
     wrongAuth: state.auth.wrongAuth,
-    myId: state.auth.id
+    myId: state.auth.id,
+    errorMessage: state.auth.errorMessage
   }
 }
 export default connect(mapStateToProps, {loginMe})(Login)

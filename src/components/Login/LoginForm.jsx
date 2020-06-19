@@ -39,7 +39,7 @@ const LoginForm = (props) => {
           <div className={s.button}><button type='submit'>Login</button></div>
         </div>
 
-        {props.wrongAuth ?  <div className={s.wrongAuth}>Invalid username and / or password</div> : null}
+        {props.wrongAuth ?  <div className={s.wrongAuth}>{props.errorMessage}</div> : null}
 
       </Form>
     </Formik>
