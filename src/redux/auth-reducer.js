@@ -37,11 +37,12 @@ const authError = (wasError, errorMessage) => ({type: AUTH_WRONG, wasError, erro
 
 // Thunk Creators //
 export const authorization = () => (dispatch) => {
-  authAPI.me().then(response => response.data).then(response => {
+  return authAPI.me().then(response => response.data).then(response => {
     if (response.resultCode === 0) {
       dispatch(setAuthUserData(response.data));
     }
   })
+
 }
 export const loginMe = (email, password, rememberMe) => (dispatch) => {
   authAPI.login(email, password, rememberMe).then(response => {
