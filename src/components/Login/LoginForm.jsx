@@ -5,8 +5,8 @@ import {Formik, Form, Field, ErrorMessage} from "formik"
 import FormErrorMessage from "../Common/FormsControls/FormErrorMessage";
 
 let validationSchema = Yup.object({
-  login: Yup.string().required("Field is required").email("Invalid email format"),
-  password: Yup.string().required("Field is required")
+  login: Yup.string().required("Please enter your e-mail").email("Invalid email format"),
+  password: Yup.string().required("Please enter your password")
 })
 let initValue = {
   login: "",
@@ -29,7 +29,7 @@ const LoginForm = (props) => {
 
         <div className={s.password}>
           <label htmlFor="password">Password</label>
-          <Field type="text" name="password" id="password" placeholder="Your password"/>
+          <Field type="password" name="password" id="password" placeholder="Your password"/>
           <ErrorMessage name="password" component={FormErrorMessage}/>
         </div>
 
@@ -38,6 +38,9 @@ const LoginForm = (props) => {
           <Field type="checkbox" id="rememberMe" name="rememberMe"/>
           <div className={s.button}><button type='submit'>Login</button></div>
         </div>
+
+        {props.wrongAuth ?  <div className={s.wrongAuth}>Invalid username and / or password</div> : null}
+
       </Form>
     </Formik>
   )
