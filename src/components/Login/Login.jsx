@@ -4,7 +4,7 @@ import LoginForm from "./LoginForm";
 
 const Login = (props) => {
   const onSubmit = (formData) => {
-    props.loginMe({...formData})
+    props.loginMe(formData.login, formData.password, formData.rememberMe)
   }
   return (
     <div>

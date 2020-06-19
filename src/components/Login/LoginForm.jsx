@@ -11,7 +11,7 @@ let validationSchema = Yup.object({
 let initValue = {
   login: "",
   password: "",
-  remeberMe: false
+  rememberMe: false
 }
 
 const LoginForm = (props) => {

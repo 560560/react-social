@@ -28,8 +28,8 @@ export const authAPI = {
     me() {
         return instance.get(`auth/me`)
     },
-    login (loginObject) {
-    return instance.post(`auth/login`, {email: loginObject.login, password :loginObject.password, rememberMe: loginObject.rememberMe})},
+    login (email, password, rememberMe) {
+    return instance.post(`auth/login`, {email, password, rememberMe})},
     logout () {
     return instance.delete(`auth/login`)}
 }

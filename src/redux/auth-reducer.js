@@ -36,9 +36,8 @@ export const authorization = () => (dispatch) => {
         }
     })
 }
-export const loginMe = (loginObject) => (dispatch) => {
-    console.log(loginObject)
-    authAPI.login(loginObject).then(response => {
+export const loginMe = (email, password, rememberMe) => (dispatch) => {
+    authAPI.login(email, password, rememberMe).then(response => {
         if (response.data.resultCode === 0) {
             dispatch (logining(true))
             authAPI.me().then(response => response.data).then(response => {
