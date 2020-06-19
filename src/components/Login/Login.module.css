@@ -1,4 +1,4 @@
-.login, .password, .rememberMe {
+.login, .password, .comboButton {
     padding-bottom: 20px;
 }
 
@@ -12,9 +12,6 @@
     padding-right: 65px;
 }
 
-.rememberMe label {
-    padding-right: 13px;
-}
 
 input {
     display: inline-block;
@@ -36,24 +33,23 @@ label {
     font-size: 20px;
 }
 
-.rememberMe input {
+.comboButton label {
+    padding-right: 13px;
+}
+
+.comboButton input {
     width: 20px;
     height: 20px;
     margin-bottom: 5px;
 }
 
 
-.button {
-    position: absolute;
-    display: block;
-    left: 512px;
-    top: 263px;
-
-
-
+.comboButton .button {
+    display: inline-block;
+    padding-left: 51px;
 }
 
-.button button {
+.comboButton button {
     border: 1px solid #347186;
     color: #000;
     border-radius: 10px;

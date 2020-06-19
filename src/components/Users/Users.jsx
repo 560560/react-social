@@ -18,7 +18,6 @@ const Users = (props) => {
             pages.push("...")
             pages.push(i)
         }
-
     }
 
     let usersList = props.users.map(u =>
