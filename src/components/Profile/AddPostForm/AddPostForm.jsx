@@ -28,7 +28,7 @@ const AddPostForm = (props) => {
         </div>
 
         <div className={s.button}>
-          <button>Add post</button>
+          <button type="submit">Add post</button>
         </div>
 
       </Form>

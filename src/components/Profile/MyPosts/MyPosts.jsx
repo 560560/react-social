@@ -7,7 +7,6 @@ import AddPostForm from "../AddPostForm/AddPostForm";
 
 const MyPosts = (props) => {
   let addPost = (formData) => {
-    console.log(formData)
     props.addPost (formData.postText)
   }
 

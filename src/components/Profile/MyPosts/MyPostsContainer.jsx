@@ -1,11 +1,14 @@
 import MyPosts from "./MyPosts";
 import {addPostActionCreater} from "../../../redux/profile-reducer";
 import {connect} from "react-redux";
+import {getPostsDataSelector} from "../../../redux/profileSelectors";
+
+
+
 
 let mapStateToProps = (state) => {
   return {
-    postTextArea: state.profilePage.postTextArea,
-    postsData: state.profilePage.postsData
+    postsData: getPostsDataSelector(state)
   }
 }
 let mapDispatchToProps = (dispatch) => {

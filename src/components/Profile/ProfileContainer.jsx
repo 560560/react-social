@@ -10,6 +10,12 @@ import {
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {
+  getFollowedStatusSelector,
+  getIdSelector, getLoadingStatusSelector,
+  getProfileSelector,
+  getUserStatusSelector
+} from "../../redux/profileSelectors";
 
 
 class ProfileContainer extends React.Component {
@@ -41,11 +47,12 @@ class ProfileContainer extends React.Component {
 
 
 let mapStateToProps = (state) => ({
-  profile: state.profilePage.profile,
-  myId: state.auth.id,
-  userStatus: state.profilePage.userStatus,
-  isFollowed: state.profilePage.isFollowed,
-  isLoading: state.profilePage.isLoading
+
+  profile: getProfileSelector(state),
+  myId: getIdSelector(state),
+  userStatus: getUserStatusSelector(state),
+  isFollowed: getFollowedStatusSelector(state),
+  isLoading: getLoadingStatusSelector(state)
 
 })
 
