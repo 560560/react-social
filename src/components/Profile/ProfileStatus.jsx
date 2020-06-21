@@ -1,44 +1,36 @@
-import React from "react";
+import React, {useState} from "react";
 
 
-class ProfileStatus extends React.Component {
+const ProfileStatus = (props) => {
 
-    state = {
-        editMode: false,
-        localStatus: this.props.status
-    }
+    let [status, setStatus] = useState(props.status)
+    let [editMode, setEditMode] = useState(false)
 
-    enableEditMode = () => {
-        this.setState({editMode: true})
-    }
-    disableEditMode = () => {
-        this.props.updateUserStatus(this.state.localStatus)
-        this.setState({editMode: false})
+    const enableEditMode = () => {
+        setEditMode(true)
     }
 
-    onStatusChange =  (e) => {
-        this.setState({localStatus: e.currentTarget.value})
+    const onStatusChange = (e) => {
+        setStatus(e.currentTarget.value)
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevProps.status !== this.props.status) {
-        this.setState({localStatus: this.props.status})
-    }
-    }
+    const disableEditMode = () => {
+        props.updateUserStatus(status)
+        setEditMode(false)
 
-    render() {
-        return (
-            <div>
-                {(!this.props.status && !this.state.editMode )&& <span onClick={this.enableEditMode}>Change status</span>}
-                {!this.state.editMode && <span onDoubleClick={this.enableEditMode}>{this.props.status}</span>}
-                {this.state.editMode &&
-                <input value={this.state.localStatus}
-                       autoFocus={true}
-                       onChange={this.onStatusChange}
-                       onBlur={this.disableEditMode} type="text"/>}
-            </div>
-        );
     }
+    return (
+        <div>
+        {!props.status && !editMode && <span onClick={enableEditMode}>Change status</span>}
+        {!editMode && <span onDoubleClick={enableEditMode}>{props.status}</span>}
+
+    {editMode &&
+    <input value={status}
+           autoFocus={true}
+           onChange={onStatusChange}
+           onBlur={disableEditMode} type="text"/>}
+        </div>
+    )
 }
 
 export default ProfileStatus
