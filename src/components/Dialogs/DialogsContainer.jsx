@@ -3,12 +3,13 @@ import {sendMessageActionCreater} from "../../redux/dialogs-reducer";
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {getDialogsDataSelector, getMessagesDataSelector, getMessageTexAreaSelector} from "../../redux/dialogsSelectors";
 
 let mapStateToProps = (state) => {
     return {
-        messagesData: state.dialogsPage.messagesData,
-        dialogsData: state.dialogsPage.dialogsData,
-        messageTexArea: state.dialogsPage.messageTexArea
+        messagesData: getMessagesDataSelector(state),
+        dialogsData: getDialogsDataSelector(state),
+        messageTexArea: getMessageTexAreaSelector(state)
     }
 }
 let mapDispatchToProps = (dispatch) => {
