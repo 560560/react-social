@@ -20,9 +20,9 @@ const ProfileInfo = (props) => {
     } else {
         return (
             <div>
-                <div className={s.profileBackground}>
+{/*                <div className={s.profileBackground}>
                     <img src="http://9878621572.myjino.ru/img/sea.jpg" alt=""/>
-                </div>
+                </div>*/}
                 <div className={s.profileInfo}>
                     <div className={s.avatar}>
                         <img src={!props.profile.photos.large ? ava_null : props.profile.photos.large} alt=""/>

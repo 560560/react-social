@@ -1,6 +1,8 @@
 
 .postsBlock {
     padding: 10px 10px 10px 10px;
+    min-height: 500px;
+
     margin-top: 10px;
     background-color: #FFFFFF;
     border-radius: 5px;
