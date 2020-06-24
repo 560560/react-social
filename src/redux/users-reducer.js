@@ -110,5 +110,4 @@ export const follow = (id) => (dispatch) => {
 
 }
 
-
 export default usersReducer

@@ -5,16 +5,17 @@ import Users from "./Users";
 import ava_null from "../../assets/images/ava_null.png";
 import {compose} from "redux";
 
-
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.getUsers(this.props.pageSize, this.props.currentPage)
+        const {pageSize, currentPage, getUsers} = this.props
+        getUsers(pageSize, currentPage)
 
     };
 
     onPageChanged = (pageNumber) => {
-        this.props.setCurrentPage(pageNumber)
-        this.props.getUsers(this.props.pageSize, pageNumber)
+        const {setCurrentPage, pageSize, getUsers} = this.props
+        setCurrentPage(pageNumber)
+        getUsers(pageSize, pageNumber)
     }
 
 
@@ -44,12 +45,7 @@ let mapStateToProps = (state) => {
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
         followingInProgress: state.usersPage.followingInProgress
-
     }
-
 }
 
-
-export default compose(connect(mapStateToProps, {setCurrentPage, getUsers, follow, unfollow})
-)
-(UsersContainer);
+export default compose(connect(mapStateToProps, {setCurrentPage, getUsers, follow, unfollow}))(UsersContainer);

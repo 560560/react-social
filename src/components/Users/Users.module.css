@@ -5,27 +5,6 @@
     min-height: 850px;
 }
 
-.pagesCounter {
-
-    padding: 40px 0px 0px 0px;
-    text-align: center;
-
-}
-
-.pagesCounter span {
-    padding: 0px 10px 0px 10px;
-}
-
-
-.pagesCounter .selectedPage {
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.pagesCounter .page {
-    cursor: pointer;
-}
-
 .usersBlock {
 
     display: grid;
@@ -33,23 +12,18 @@
     padding: 40px 0px 0px 40px;
 }
 
-
 .userAva_followButton {
     text-align: center;
     min-width: 100px;
-
 }
-
 
 .userAva_followButton .followUnfollowButton {
 
 }
 
-
 .userAva {
 
 }
-
 
 .userAva img {
     width: 60px;
@@ -60,33 +34,26 @@
 .userInfo {
     border: 1px solid black;
     border-radius: 5px;
-
-
     display: grid;
     grid-template-columns: 7fr 5fr;
     grid-template-rows: 40px 40px;
-
 }
-
 
 .userInfo .userName {
     margin-left: 15px;
     margin-top: 10px;
 }
 
-
 .userInfo .status {
     margin-left: 15px;
     margin-top: 10px;
 }
-
 
 .userInfo .country {
     text-align: right;
     margin-right: 15px;
     margin-top: 10px;
 }
-
 
 .userInfo .city {
     text-align: right;
