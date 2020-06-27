@@ -14,10 +14,10 @@ let initValue = {
   rememberMe: false
 }
 
-const LoginForm = (props) => {
+const LoginForm = ({wrongAuth, onSubmit, errorMessage}) => {
 
   return (
-    <Formik initialValues={initValue} onSubmit={props.onSubmit} validationSchema={validationSchema}>
+    <Formik initialValues={initValue} onSubmit={onSubmit} validationSchema={validationSchema}>
 
       <Form>
 
@@ -39,7 +39,7 @@ const LoginForm = (props) => {
           <div className={s.button}><button type='submit'>Login</button></div>
         </div>
 
-        {props.wrongAuth ?  <div className={s.wrongAuth}>{props.errorMessage}</div> : null}
+        {wrongAuth ?  <div className={s.wrongAuth}>{errorMessage}</div> : null}
 
       </Form>
     </Formik>

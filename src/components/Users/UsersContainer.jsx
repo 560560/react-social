@@ -48,4 +48,6 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default compose(connect(mapStateToProps, {setCurrentPage, getUsers, follow, unfollow}))(UsersContainer);
+export default compose(
+    connect(mapStateToProps, {setCurrentPage, getUsers, follow, unfollow}))
+(UsersContainer);

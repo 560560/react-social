@@ -4,18 +4,19 @@ import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import Preloader from "../Common/Preloader/Preloader";
 
-const Profile = (props) => {
-  if (props.isLoading) {
+const Profile = ({isLoading, profile, myId, match, userStatus, updateUserStatus,
+                     isFollowed, followFromProfile, unfollowFromProfile, userId}) => {
+  if (isLoading) {
     return <Preloader/>
   } else {
 
   return (
     <div>
-      <ProfileInfo profile={props.profile} myId={props.myId} url={props.match.url} userStatus={props.userStatus}
-                   updateUserStatus={props.updateUserStatus} isFollowed={props.isFollowed}
-                   followFromProfile={props.followFromProfile}
-                   unfollowFromProfile={props.unfollowFromProfile} userId={props.userId}/>
-      <MyPostsContainer store={props.store}/>
+      <ProfileInfo profile={profile} myId={myId} url={match.url} userStatus={userStatus}
+                   updateUserStatus={updateUserStatus} isFollowed={isFollowed}
+                   followFromProfile={followFromProfile}
+                   unfollowFromProfile={unfollowFromProfile} userId={userId}/>
+      <MyPostsContainer />
     </div>)
 
 

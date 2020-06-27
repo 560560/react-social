@@ -2,6 +2,7 @@ import MyPosts from "./MyPosts";
 import {addPostActionCreater} from "../../../redux/profile-reducer";
 import {connect} from "react-redux";
 import {getPostsDataSelector} from "../../../redux/profileSelectors";
+import {compose} from "redux";
 
 
 
@@ -19,6 +20,6 @@ let mapDispatchToProps = (dispatch) => {
     }
   }
 }
-const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 
-export default MyPostsContainer;
+
+export default compose (connect(mapStateToProps, mapDispatchToProps))(MyPosts)

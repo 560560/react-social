@@ -2,17 +2,17 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import SendMessageReduxForm from "./SendMessageForm/SendMessageForm";
+import SendMessageForm from "./SendMessageForm/SendMessageForm";
 
 
-const Dialogs = (props) => {
+const Dialogs = ({sendMessage, messagesData, dialogsData}) => {
 
   let addNewMessage = (formData) => {
-    props.sendMessage(formData.messageText)
+    sendMessage(formData.messageText)
   }
 
 
-  let messagesElements = props.messagesData.map(m => <Message key={m.id}
+  let messagesElements = messagesData.map(m => <Message key={m.id}
                                                               messageItem={m.message}
                                                               id={m.id}
                                                               owner={m.owner}
@@ -20,7 +20,7 @@ const Dialogs = (props) => {
                                                               opponentsAva={m.opponentsAva}
                                                               ownerAva={m.ownerAva}/>)
 
-  let dialogsElements = props.dialogsData.map(d => <DialogItem key={d.id}
+  let dialogsElements = dialogsData.map(d => <DialogItem key={d.id}
                                                                name={d.name}
                                                                id={d.id}
                                                                avatar={d.avatar}/>)
@@ -31,7 +31,7 @@ const Dialogs = (props) => {
       </div>
       <div className={s.messagesBlock}>
         {messagesElements}
-        <div><SendMessageReduxForm onSubmit={addNewMessage}/></div>
+        <div><SendMessageForm onSubmit={addNewMessage}/></div>
       </div>
     </div>
   );

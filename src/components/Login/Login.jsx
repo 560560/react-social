@@ -3,15 +3,15 @@ import React from "react";
 import LoginForm from "./LoginForm";
 import {Redirect} from "react-router-dom";
 
-const Login = (props) => {
+const Login = ({loginMe, isAuth, myId, wrongAuth, errorMessage}) => {
   const onSubmit = (formData) => {
-    props.loginMe(formData.login, formData.password, formData.rememberMe)
+    loginMe(formData.login, formData.password, formData.rememberMe)
   }
-  if(props.isAuth && props.myId) return <Redirect to={`/profile/${props.myId}`} />
+  if(isAuth && myId) return <Redirect to={`/profile/${myId}`} />
   return (
     <div>
       <h1>Login</h1>
-     <LoginForm onSubmit={onSubmit} wrongAuth={props.wrongAuth} errorMessage={props.errorMessage}/>
+     <LoginForm onSubmit={onSubmit} wrongAuth={wrongAuth} errorMessage={errorMessage}/>
 
     </div>
 

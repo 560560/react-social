@@ -3,8 +3,8 @@ import s from './Users.module.css';
 import {NavLink} from "react-router-dom";
 
 
-const User = ({user, ava_null, followingInProgress, follow,unfollow}) => {
-return(
+const User = ({user, ava_null, followingInProgress, follow, unfollow}) => {
+    return (
         <div className={s.usersBlock}>
             <div className={s.userAva_followButton}>
                 <div className={s.userAva}><NavLink to={"/profile/" + user.id}><img
@@ -13,14 +13,9 @@ return(
                 <div className={s.followUnfollowButton}>{
                     user.followed
                         ? <button disabled={followingInProgress.some(id => id === user.id)}
-                                  onClick={() => {
-                                     unfollow(user.id)}
-                                  }>Unfollow</button>
-
+                                  onClick={() => {unfollow(user.id)}}>Unfollow</button>
                         : <button disabled={followingInProgress.some(id => id === user.id)}
-                                  onClick={() => {
-                                      follow(user.id)
-                                  }}>Follow</button>}
+                                  onClick={() => {follow(user.id)}}>Follow</button>}
                 </div>
             </div>
             <div className={s.userInfo}>

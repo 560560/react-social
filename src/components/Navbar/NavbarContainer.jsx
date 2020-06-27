@@ -8,10 +8,7 @@ let mapStateToProps = (state) => {
     friendsData: state.sidebar.friendsData
   }
 }
-let mapDispatchToProps = (dispatch) => {
-  return {
 
-  }
-}
-
-export default  compose(connect(mapStateToProps, mapDispatchToProps))(Navbar);
+export default  compose(
+    connect(mapStateToProps, {}))
+(Navbar);

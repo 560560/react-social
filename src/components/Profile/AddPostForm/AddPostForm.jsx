@@ -14,12 +14,10 @@ let validationSchema = Yup.object({
   }
 )
 
-
-
-const AddPostForm = (props) => {
+const AddPostForm = ({onSubmit}) => {
   return (
 
-    <Formik onSubmit={props.onSubmit} initialValues={initValue} validationSchema={validationSchema}>
+    <Formik onSubmit={onSubmit} initialValues={initValue} validationSchema={validationSchema}>
 
       <Form>
         <div className={s.addPost}>
@@ -33,9 +31,7 @@ const AddPostForm = (props) => {
 
       </Form>
 
-
     </Formik>
-
 
   )}
 export default AddPostForm

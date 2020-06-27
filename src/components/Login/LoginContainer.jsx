@@ -1,6 +1,7 @@
 import {connect} from "react-redux";
 import Login from "./Login";
 import {loginMe} from "../../redux/auth-reducer";
+import {compose} from "redux";
 
 let mapStateToProps =  (state) => {
   return {
@@ -10,4 +11,5 @@ let mapStateToProps =  (state) => {
     errorMessage: state.auth.errorMessage
   }
 }
-export default connect(mapStateToProps, {loginMe})(Login)
+export default compose (connect(mapStateToProps, {loginMe}))
+(Login)

@@ -17,48 +17,49 @@ import Preloader from "./components/Common/Preloader/Preloader";
 
 
 class App extends React.Component {
-  componentDidMount() {
-    this.props.initializeApp()
-  }
-
-  render() {
-    if (!this.props.initialized) {
-      return <Preloader/>
+    componentDidMount() {
+        this.props.initializeApp()
     }
 
-    return (
-      <div className='app-wrapper'>
-        <HeaderContainer/>
-        <NavbarContainer/>
-        <div className='app-wrapper-content'>
-          <Route path='/dialogs' render={() => <DialogsContainer/>}/>
+    render() {
+        if (!this.props.initialized) {
+            return <Preloader/>
+        }
 
-          <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
+        return (
+            <div className='app-wrapper'>
+                <HeaderContainer/>
+                <NavbarContainer/>
+                <div className='app-wrapper-content'>
+                    <Route path='/dialogs' render={() => <DialogsContainer/>}/>
 
-          <Route path='/users' render={() => <UsersContainer/>}/>
+                    <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
 
-          <Route path='/news' component={News}/>
+                    <Route path='/users' render={() => <UsersContainer/>}/>
 
-          <Route path='/music' component={Music}/>
+                    <Route path='/news' component={News}/>
 
-          <Route path='/settings' component={Settings}/>
+                    <Route path='/music' component={Music}/>
 
-          <Route path='/login' component={LoginContainer}/>
+                    <Route path='/settings' component={Settings}/>
 
-        </div>
-      </div>
-    );
-  }
+                    <Route path='/login' component={LoginContainer}/>
+
+                </div>
+            </div>
+        );
+    }
 }
 
 
 const mapStateToProps = (state) => ({
-  initialized: state.appReducer.initialized
+    initialized: state.appReducer.initialized
 })
 
 
 export default compose(
-  withRouter,
-  connect(mapStateToProps, {initializeApp}))(App)
+    withRouter,
+    connect(mapStateToProps, {initializeApp}))
+(App)
 
 
