@@ -15,3 +15,9 @@
 .pagesCounter .page {
     cursor: pointer;
 }
+.pagesCounter img {
+    height: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+
+}

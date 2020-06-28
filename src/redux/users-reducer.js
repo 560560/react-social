@@ -15,7 +15,7 @@ let initialState = {
   ],
   pageSize: 5,
   totalUsersCount: 0,
-  currentPage: 1,
+  currentPage: {number: 1, index: 0},
   isFetching: true,
   followingInProgress: []
 
@@ -54,6 +54,7 @@ const usersReducer = (state = initialState, action) => {
       return {
         ...state,
         currentPage: action.pageNumber
+
       }
     case TOGGLE_IS_FETCHING:
       return {
@@ -74,7 +75,8 @@ export const followTo = (userID) => ({type: FOLLOW, userID})
 export const unfollowFrom = (userID) => ({type: UNFOLLOW, userID})
 export const setUsers = (users) => ({type: SET_USERS, users})
 export const setUsersCount = (users) => ({type: SET_USERS_COUNT, users})
-export const setCurrentPage = (pageNumber) => ({type: SET_CURRENT_PAGE, pageNumber})
+export const setCurrentPage = (pageNumber) => ({type: SET_CURRENT_PAGE,  pageNumber
+})
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 export const toggleIsFollowingProgress = (isFetching, id) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, id})
 
