@@ -3,8 +3,10 @@
     text-align: center;
 }
 
-.pagesCounter span {
-    padding: 0px 10px 0px 10px;
+.pagesCounter div {
+    display: inline-block;
+    padding: 0px 10px;
+    min-width: 30px;
 }
 
 .pagesCounter .selectedPage {
@@ -17,6 +19,7 @@
 }
 .pagesCounter img {
     height: 20px;
+    padding: 0px 10px;
     vertical-align: middle;
     cursor: pointer;
 
