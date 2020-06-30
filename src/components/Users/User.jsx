@@ -20,9 +20,7 @@ const User = ({user, ava_null, followingInProgress, follow, unfollow}) => {
             </div>
             <div className={s.userInfo}>
                 <div className={s.userName}>{user.name}</div>
-                <div className={s.country}>{/*{user.location.country},*/}</div>
                 <div className={s.status}>{user.status}</div>
-                <div className={s.city}>{/*{user.location.city}*/}</div>
             </div>
         </div>)
 

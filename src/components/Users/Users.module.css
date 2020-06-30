@@ -35,7 +35,6 @@
     border: 1px solid black;
     border-radius: 5px;
     display: grid;
-    grid-template-columns: 7fr 5fr;
     grid-template-rows: 40px 40px;
 }
 
