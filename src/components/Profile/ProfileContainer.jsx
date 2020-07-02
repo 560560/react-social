@@ -19,27 +19,28 @@ import {
 
 
 class ProfileContainer extends React.Component {
-    componentDidMount() {
+
+    rerenderProfile () {
         let userId = this.props.match.params.userId;
         if (!userId) {
             userId = this.props.myId
         }
-
         if (userId && userId !== this.props.myId) {
             this.props.getFollowStatus(userId)
         }
-
-
         this.props.getUserProfile(userId)
         this.props.getUserStatus(userId)
 
     }
 
+    componentDidMount() {
+    this.rerenderProfile()
+    }
+
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.match.url !== this.props.match.url) {
-            this.props.getUserStatus(this.props.myId)
-            this.props.getUserProfile(this.props.myId)
+        if (prevProps.match.params.userId !== this.props.match.params.userId) {
+            this.rerenderProfile()
         }
     }
 

@@ -34,6 +34,10 @@ const Paginator = ({totalUsersCount, pageSize, onPageChanged, currentPage}) => {
     // обработка уменьшения количесства страниц списка на последних страницах
     if (pagesCount !==0 && pagesCount - firstPage < 9) {setFirstPage(pagesCount - 9)}
 
+    // обработка выставления выбранной страницы в индекс 4, при перемонтировании компоненты
+    if (firstPage === 1 && firstPage !== currentPage.number && currentPage.number > 5) {
+        setFirstPage(currentPage.number - 4)
+    }
 
     for (let i = firstPage; i <= pagesCount; i++) {
         if (pages.length < 10) {

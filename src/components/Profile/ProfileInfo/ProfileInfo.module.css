@@ -38,6 +38,14 @@
     padding-bottom: 5px;
 }
 
+.firstContactBlock {
+    padding-top: 5px;
+}
+
+.secondContactBlock {
+    padding-top: 5px;
+}
+
 .about {
     display: grid;
     grid-template-columns: 6fr 3fr 3fr;
@@ -80,7 +88,7 @@ font-weight: bold;
     font-weight: normal;
 }
 
-.avatar {
+.avatarAndButtons {
     text-align: center;
 
     background-color: #FFFFFF;
@@ -89,10 +97,14 @@ font-weight: bold;
 
 
 }
+.avatar {
+
+}
 
 .avatar img {
     vertical-align: bottom;
     min-width: 220px;
+    min-height: 220px;
     margin: 10px;
     width: 200px;
 }
