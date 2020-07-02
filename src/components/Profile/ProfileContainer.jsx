@@ -5,14 +5,14 @@ import {
     getUserProfile,
     getUserStatus,
     updateUserStatus,
-    getFollowStatus, followFromProfile, unfollowFromProfile
+    getFollowStatus, followFromProfile, unfollowFromProfile, setIsOpen, savePhoto
 } from "../../redux/profile-reducer";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {
     getFollowedStatusSelector,
-    getIdSelector, getLoadingStatusSelector,
+    getIdSelector, getIsOpenSelector, getLoadingStatusSelector,
     getProfileSelector,
     getUserStatusSelector
 } from "../../redux/profileSelectors";
@@ -20,7 +20,7 @@ import {
 
 class ProfileContainer extends React.Component {
 
-    rerenderProfile () {
+    rerenderProfile() {
         let userId = this.props.match.params.userId;
         if (!userId) {
             userId = this.props.myId
@@ -34,7 +34,7 @@ class ProfileContainer extends React.Component {
     }
 
     componentDidMount() {
-    this.rerenderProfile()
+        this.rerenderProfile()
     }
 
 
@@ -47,7 +47,9 @@ class ProfileContainer extends React.Component {
 
     render() {
         return (
-            <Profile {...this.props} userId={this.props.match.params.userId}/>
+            <Profile {...this.props}
+                     userId={this.props.match.params.userId}
+                     isOwner={!this.props.match.params.userId}/>
         )
     }
 }
@@ -59,7 +61,9 @@ let mapStateToProps = (state) => ({
     myId: getIdSelector(state),
     userStatus: getUserStatusSelector(state),
     isFollowed: getFollowedStatusSelector(state),
-    isLoading: getLoadingStatusSelector(state)
+    isLoading: getLoadingStatusSelector(state),
+    isOpen: getIsOpenSelector(state)
+
 
 })
 
@@ -71,7 +75,9 @@ export default compose(
         updateUserStatus,
         getFollowStatus,
         followFromProfile,
-        unfollowFromProfile
+        unfollowFromProfile,
+        setIsOpen,
+        savePhoto
     }),
     withRouter,
     withAuthRedirect)

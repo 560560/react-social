@@ -3,9 +3,11 @@ import React from 'react';
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import Preloader from "../Common/Preloader/Preloader";
+import AddAvatar from "./ProfileInfo/addAvatar/AddAvatar";
 
-const Profile = ({isLoading, profile, myId, match, userStatus, updateUserStatus,
-                     isFollowed, followFromProfile, unfollowFromProfile, userId}) => {
+
+const Profile = ({isLoading, profile, myId, match, userStatus, updateUserStatus, savePhoto,
+                     isFollowed, followFromProfile, unfollowFromProfile, userId, isOwner, isOpen, setIsOpen}) => {
   if (isLoading) {
     return <Preloader/>
   } else {
@@ -14,8 +16,8 @@ const Profile = ({isLoading, profile, myId, match, userStatus, updateUserStatus,
     <div>
       <ProfileInfo profile={profile} myId={myId} url={match.url} userStatus={userStatus}
                    updateUserStatus={updateUserStatus} isFollowed={isFollowed}
-                   followFromProfile={followFromProfile}
-                   unfollowFromProfile={unfollowFromProfile} userId={userId}/>
+                   followFromProfile={followFromProfile} isOpen={isOpen} setIsOpen={setIsOpen}
+                   unfollowFromProfile={unfollowFromProfile} userId={userId} isOwner={isOwner} savePhoto={savePhoto}/>
       <MyPostsContainer />
     </div>)
 

@@ -4,11 +4,12 @@ import Preloader from "../../Common/Preloader/Preloader";
 import ava_null from "./../../../assets/images/ava_null.png"
 import ProfileStatus from "../ProfileStatus";
 import ContactsBlock from "./ContactsBlock";
+import AddAvatar from "./addAvatar/AddAvatar";
 
 
 const ProfileInfo = ({
-                         profile, userId, myId, isFollowed, followFromProfile,
-                         unfollowFromProfile, userStatus, updateUserStatus, url
+                         profile, userId, myId, isFollowed, followFromProfile, isOpen, setIsOpen,
+                         unfollowFromProfile, userStatus, updateUserStatus, url, isOwner, savePhoto
                      }) => {
 
     if (!profile) {
@@ -23,8 +24,17 @@ const ProfileInfo = ({
                     <div className={s.avatarAndButtons}>
                         <div className={s.avatar}><img src={!profile.photos.large ? ava_null : profile.photos.large}
                                                        alt=""/></div>
-                        {(userId !== undefined && Number(userId) !== myId)
+                        {(isOwner)
                             ? <div>
+                                <div className={s.editPage}>
+                                    <button>Edit page</button>
+                                </div>
+                                <div className={s.addPhoto}>
+                                    <button onClick={() => setIsOpen(true)}>Add photo</button>
+                                    <AddAvatar isOpen={isOpen} setIsOpen={setIsOpen} savePhoto={savePhoto}/>
+                                </div>
+                            </div>
+                            : <div>
                                 <div className={s.sendMessageButton}>
                                     <button>Send message</button>
                                 </div>
@@ -41,15 +51,6 @@ const ProfileInfo = ({
                                         }}>Follow
                                         </button>
                                     </div>}
-                            </div>
-                            : <div>
-                                <div className={s.editPage}>
-                                    <button>Edit page</button>
-                                </div>
-                                <div className={s.addPhoto}>
-                                    <button>Add photo</button>
-                                </div>
-
                             </div>
                         }
 

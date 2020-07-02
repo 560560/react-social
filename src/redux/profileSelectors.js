@@ -21,3 +21,7 @@ export const getLoadingStatusSelector = (state) => {
 export const getPostsDataSelector = (state) => {
     return state.profilePage.postsData
 }
+
+export const getIsOpenSelector = (state) => {
+    return state.profilePage.isOpen
+}
