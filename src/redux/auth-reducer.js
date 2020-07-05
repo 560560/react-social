@@ -1,4 +1,5 @@
 import {authAPI, userAPI} from "../api/api";
+import {setUserProfile} from "./profile-reducer";
 
 const SET_USER_DATA = "SET_USER_DATA"
 const LOGINING = "LOGINING"
@@ -69,6 +70,7 @@ export const loginOut = () => async (dispatch) => {
     if (response.data.resultCode === 0) {
         dispatch(logining(false))
         dispatch(clearId())
+        dispatch(setUserProfile(null))
         response = await authAPI.me()
         if (response.data.resultCode === 0) {
             dispatch(setAuthUserData(response.data.data));
