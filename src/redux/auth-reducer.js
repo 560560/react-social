@@ -1,31 +1,31 @@
-import {authAPI} from "../api/api";
+import {authAPI, userAPI} from "../api/api";
 
 const SET_USER_DATA = "SET_USER_DATA"
 const LOGINING = "LOGINING"
 const AUTH_WRONG = "AUTH-WRONG"
 
 let initialState = {
-  id: null,
-  email: null,
-  login: null,
-  isAuth: false,
-  wrongAuth: false,
-  errorMessage: ""
+    id: null,
+    email: null,
+    login: null,
+    isAuth: false,
+    wrongAuth: false,
+    errorMessage: ""
 }
 
 
 const authReducer = (state = initialState, action) => {
 
-  switch (action.type) {
-    case SET_USER_DATA:
-      return {...state, ...action.data, isAuth: true}
-    case LOGINING:
-      return {...state, isAuth: action.isAuth}
-    case AUTH_WRONG:
-      return {...state, wrongAuth: action.wasError, errorMessage: action.errorMessage}
-    default:
-      return state
-  }
+    switch (action.type) {
+        case SET_USER_DATA:
+            return {...state, ...action.data, isAuth: true}
+        case LOGINING:
+            return {...state, isAuth: action.isAuth}
+        case AUTH_WRONG:
+            return {...state, wrongAuth: action.wasError, errorMessage: action.errorMessage}
+        default:
+            return state
+    }
 
 
 }
@@ -36,42 +36,41 @@ const authError = (wasError, errorMessage) => ({type: AUTH_WRONG, wasError, erro
 
 
 // Thunk Creators //
-export const authorization = () => (dispatch) => {
-  return authAPI.me().then(response => response.data).then(response => {
-    if (response.resultCode === 0) {
-      dispatch(setAuthUserData(response.data));
+export const authorization = () => async (dispatch) => {
+    let response = await authAPI.me();
+    if (response.data.resultCode === 0) {
+        dispatch(setAuthUserData(response.data.data));
     }
-  })
+
 
 }
-export const loginMe = (email, password, rememberMe) => (dispatch) => {
-  authAPI.login(email, password, rememberMe).then(response => {
-    console.log(response)
+export const loginMe = (email, password, rememberMe) => async (dispatch) => {
+    let response = await authAPI.login(email, password, rememberMe)
     if (response.data.resultCode === 0) {
-      dispatch(logining(true))
-      dispatch(authError(false))
-      authAPI.me().then(response => response.data).then(response => {
-        if (response.resultCode === 0) {
-          dispatch(setAuthUserData(response.data));
+        dispatch(logining(true))
+        dispatch(authError(false))
+        response = await authAPI.me()
+        if (response.data.resultCode === 0) {
+            dispatch(setAuthUserData(response.data.data));
         }
-      })
+
     }
     if (response.data.resultCode === 1) {
-      dispatch(authError(true, response.data.messages[0]))
+        dispatch(authError(true, response.data.messages[0]))
     }
-  })
+
 }
-export const loginOut = () => (dispatch) => {
-  authAPI.logout().then(response => {
+export const loginOut = () => async (dispatch) => {
+    let response = await authAPI.logout()
     if (response.data.resultCode === 0) {
-      dispatch(logining(false))
-      authAPI.me().then(response => response.data).then(response => {
-        if (response.resultCode === 0) {
-          dispatch(setAuthUserData(response.data));
+        dispatch(logining(false))
+        response = await authAPI.me()
+        if (response.data.resultCode === 0) {
+            dispatch(setAuthUserData(response.data.data));
         }
-      })
+
     }
-  })
+
 }
 
 

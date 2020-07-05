@@ -1,12 +1,14 @@
 import {profileAPI, userAPI} from "../api/api";
 
 
-const ADD_POST = "ADD-POST";
-const SET_USER_PROFILE = "SET-USER-PROFILE"
-const SET_USER_STATUS = "SET-USER-STATUS"
-const SET_FOLLOW_STATUS = "SET-FOLLOW-STATUS"
-const SET_LOADING = "SET-LOADING"
-const SET_OPEN_ADD_PHOTO_STATUS = "SET-OPEN-ADD-PHOTO-STATUS"
+const ADD_POST = "profile-reducer/ADD-POST";
+const SET_USER_PROFILE = "profile-reducer/SET-USER-PROFILE"
+const SET_USER_STATUS = "profile-reducer/SET-USER-STATUS"
+const SET_FOLLOW_STATUS = "profile-reducer/SET-FOLLOW-STATUS"
+const SET_LOADING = "profile-reducer/SET-LOADING"
+const SAVE_PHOTO_SUCCESS = "profile-reducer/SAVE-PHOTO-SUCCESS"
+const SET_OPEN_ADD_PHOTO_STATUS = "profile-reducer/SET-OPEN-ADD-PHOTO-STATUS"
+
 
 let initialState = {
     profile: null,
@@ -22,7 +24,6 @@ let initialState = {
 }
 
 const profileReducer = (state = initialState, action) => {
-
     switch (action.type) {
         case ADD_POST: {
             if (!action.postText) return state
@@ -55,6 +56,11 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 isOpen: action.isOpen
             }
+        case SAVE_PHOTO_SUCCESS:
+            return {
+                ...state,
+                profile: {...state.profile, photos: action.photos}
+            }
         default : {
             return state;
         }
@@ -81,51 +87,53 @@ const setLoading = (loadingStatus) => {
 export const setIsOpen = (isOpen) => {
     return {type: SET_OPEN_ADD_PHOTO_STATUS, isOpen}
 }
+const savePhotoSuccess = (photos) => {
+    return {type: SAVE_PHOTO_SUCCESS, photos}
+}
 
 
 // Thunk Creators //
-export const getUserProfile = (userId) => (dispatch) => {
+export const getUserProfile = (userId) => async (dispatch) => {
     dispatch(setLoading(true))
-    userAPI.getUserProfile(userId).then(response => {
-        dispatch(setUserProfile(response.data))
-        dispatch(setLoading(false))
-    })
+    let response = await userAPI.getUserProfile(userId);
+    dispatch(setUserProfile(response.data))
+    dispatch(setLoading(false))
+
 }
-export const getUserStatus = (userId) => (dispatch) => {
-    profileAPI.getUserStatus(userId).then(response => {
-        dispatch(setUserStatus(response.data));
-    })
+export const getUserStatus = (userId) => async (dispatch) => {
+    let response = await profileAPI.getUserStatus(userId);
+    dispatch(setUserStatus(response.data));
+
 }
-export const updateUserStatus = (status) => (dispatch) => {
-    profileAPI.updateStatus(status).then(response => {
+export const updateUserStatus = (status) => async (dispatch) => {
+    let response = await profileAPI.updateStatus(status);
         if (response.data.resultCode === 0) {
             dispatch(setUserStatus(status))
         }
-    })
 }
-export const getFollowStatus = (userId) => (dispatch) => {
-    profileAPI.getFollowStatus(userId).then(response => {
+export const getFollowStatus = (userId) => async (dispatch) => {
+    let response = await profileAPI.getFollowStatus(userId);
         dispatch(setFollowStatus(response.data))
-    })
 }
-export const followFromProfile = (id) => (dispatch) => {
-    profileAPI.followFromProfile(id).then(response => {
+export const followFromProfile = (id) => async (dispatch) => {
+    let response = await profileAPI.followFromProfile(id);
         if (response.data.resultCode === 0) {
             dispatch(setFollowStatus(true))
         }
-    })
 }
-export const unfollowFromProfile = (id) => (dispatch) => {
-    profileAPI.unfollowFromProfile(id).then(response => {
+export const unfollowFromProfile = (id) => async (dispatch) => {
+    let response = await profileAPI.unfollowFromProfile(id);
         if (response.data.resultCode === 0) {
             dispatch(setFollowStatus(false))
         }
-    })
 }
-export const savePhoto = (photo) => (dispatch) => {
+export const savePhoto = (photo) => async (dispatch) => {
+    let response = await profileAPI.savePhoto(photo);
+    if (response.data.resultCode === 0) {
+        dispatch (savePhotoSuccess(response.data.data.photos))
+        dispatch(setIsOpen(false))
+    }
 
-    console.log(photo)
-    dispatch (setIsOpen(false))
 
 }
 

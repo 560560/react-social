@@ -1,6 +1,6 @@
 import {authorization} from "./auth-reducer";
 
-const INITIALIZED_SUCCESS = "INITIALIZED-SUCCESS"
+const INITIALIZED_SUCCESS = "app-reducer/INITIALIZED-SUCCESS"
 
 let initialState = {
   initialized: false

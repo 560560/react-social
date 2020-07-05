@@ -3,8 +3,6 @@ import React from 'react';
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import Preloader from "../Common/Preloader/Preloader";
-import AddAvatar from "./ProfileInfo/addAvatar/AddAvatar";
-
 
 const Profile = ({isLoading, profile, myId, match, userStatus, updateUserStatus, savePhoto,
                      isFollowed, followFromProfile, unfollowFromProfile, userId, isOwner, isOpen, setIsOpen}) => {
