@@ -8,6 +8,7 @@ const SET_FOLLOW_STATUS = "profile-reducer/SET-FOLLOW-STATUS"
 const SET_LOADING = "profile-reducer/SET-LOADING"
 const SAVE_PHOTO_SUCCESS = "profile-reducer/SAVE-PHOTO-SUCCESS"
 const SET_OPEN_ADD_PHOTO_STATUS = "profile-reducer/SET-OPEN-ADD-PHOTO-STATUS"
+const ADD_PHOTO_ERROR = "profile-reducer/ADD-PHOTO-ERROR"
 
 
 let initialState = {
@@ -20,7 +21,9 @@ let initialState = {
         {id: 1, message: 'Hi, how are you?', likesCount: 15},
         {id: 2, message: "It's my first post", likesCount: 20}
 
-    ]
+    ],
+    wrongImageFile: false,
+    errorMessage: ""
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -61,6 +64,10 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 profile: {...state.profile, photos: action.photos}
             }
+        case ADD_PHOTO_ERROR:
+            return {
+                ...state, wrongImageFile: action.wrongImageFile, errorMessage: action.errorMessage
+            }
         default : {
             return state;
         }
@@ -90,7 +97,9 @@ export const setIsOpen = (isOpen) => {
 const savePhotoSuccess = (photos) => {
     return {type: SAVE_PHOTO_SUCCESS, photos}
 }
-
+export const addPhotoError = (wrongImageFile, errorMessage) => {
+    return {type:ADD_PHOTO_ERROR, wrongImageFile, errorMessage}
+}
 
 // Thunk Creators //
 export const getUserProfile = (userId) => async (dispatch) => {
@@ -131,7 +140,13 @@ export const savePhoto = (photo) => async (dispatch) => {
     let response = await profileAPI.savePhoto(photo);
     if (response.data.resultCode === 0) {
         dispatch (savePhotoSuccess(response.data.data.photos))
+        dispatch(addPhotoError(false, ""))
         dispatch(setIsOpen(false))
+    }
+    else if (response.data.resultCode === 1) {
+
+    dispatch(addPhotoError(true, response.data.messages[0]))
+
     }
 
 

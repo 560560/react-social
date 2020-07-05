@@ -25,3 +25,6 @@ export const getPostsDataSelector = (state) => {
 export const getIsOpenSelector = (state) => {
     return state.profilePage.isOpen
 }
+export const getErrorMessageSelector = (state) => {
+    return state.profilePage.errorMessage
+}

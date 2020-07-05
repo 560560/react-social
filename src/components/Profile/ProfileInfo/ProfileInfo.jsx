@@ -8,8 +8,9 @@ import AddAvatar from "./addAvatar/AddAvatar";
 
 
 const ProfileInfo = ({
-                         profile, userId, myId, isFollowed, followFromProfile, isOpen, setIsOpen,
-                         unfollowFromProfile, userStatus, updateUserStatus, url, isOwner, savePhoto
+                         profile, userId, myId, isFollowed, followFromProfile,
+                         isOpen, setIsOpen, unfollowFromProfile, userStatus,
+                         updateUserStatus, url, isOwner, savePhoto, errorMessage, addPhotoError
                      }) => {
 
     if (!profile) {
@@ -31,7 +32,8 @@ const ProfileInfo = ({
                                 </div>
                                 <div className={s.addPhoto}>
                                     <button onClick={() => setIsOpen(true)}>Add photo</button>
-                                    <AddAvatar isOpen={isOpen} setIsOpen={setIsOpen} savePhoto={savePhoto}/>
+                                    <AddAvatar isOpen={isOpen} setIsOpen={setIsOpen} savePhoto={savePhoto}
+                                               errorMessage={errorMessage} addPhotoError={addPhotoError}/>
                                 </div>
                             </div>
                             : <div>

@@ -9,12 +9,13 @@ let initValue = {
 }
 
 
-const AddAvatar = ({isOpen, setIsOpen, savePhoto}) => {
+const AddAvatar = ({isOpen, setIsOpen, savePhoto, errorMessage, addPhotoError}) => {
     const [photoIsChosen, setPhotoIsChosen] = useState(false)
 
     const setPhoto = (e) => {
         initValue.Avatar = e.target.files[0];
         setPhotoIsChosen(true)
+        addPhotoError(false, "")
     }
 
     return (
@@ -28,11 +29,15 @@ const AddAvatar = ({isOpen, setIsOpen, savePhoto}) => {
                         </div>
                         <div className={s.modalWindow}>
                             <div className={s.modalHeader}>
-                                <div className={s.modalTitle}><label htmlFor="login">Uploading new photo</label></div>
+                                <div className={s.modalTitle}><label htmlFor="photo">Uploading new photo</label></div>
                                 <div className={s.modalCloseIcon}><img src={windowClose}
                                                                        onClick={() => setIsOpen(false)} alt=""/>
                                 </div>
                             </div>
+
+                            {errorMessage
+                            && <div className={s.wrongImage}>{errorMessage}</div>
+                            }
 
                             <div className={s.modalBody}>
                                 <input id="photo" name="photo" type="file" onChange={setPhoto}/>
