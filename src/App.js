@@ -1,5 +1,5 @@
 import React, {Suspense} from 'react';
-import {Route, withRouter} from "react-router-dom";
+import {Redirect, Route, withRouter} from "react-router-dom";
 import './App.css';
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
@@ -21,12 +21,10 @@ class App extends React.Component {
     componentDidMount() {
         this.props.initializeApp()
     }
-
     render() {
         if (!this.props.initialized) {
             return <Preloader/>
         }
-
         return (
             <div className='app-wrapper'>
                 <Suspense fallback={<div><Preloader/></div>}>
@@ -34,34 +32,24 @@ class App extends React.Component {
                 <NavbarContainer/>
 
                 <div className='app-wrapper-content'>
-
                     <Route path='/dialogs' render={() => <DialogsContainer/>}/>
-
                     <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
-
                     <Route path='/users' render={() => <UsersContainer/>}/>
-
                     <Route path='/news' component={News}/>
-
                     <Route path='/music' component={Music}/>
-
                     <Route path='/settings' component={Settings}/>
-
                     <Route path='/login' component={LoginContainer}/>
-
+                    <Redirect from='/' to='/profile'/>
                 </div>
                 </Suspense>
             </div>
-
         );
     }
 }
 
-
 const mapStateToProps = (state) => ({
     initialized: state.appReducer.initialized
 })
-
 
 export default compose(
     withRouter,

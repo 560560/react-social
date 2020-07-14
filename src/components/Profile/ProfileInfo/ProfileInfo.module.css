@@ -12,10 +12,20 @@
     padding: 15px;
 }
 
-.description .userName_status {
+.userName_status {
     border-bottom: 1px solid #e7e8ec;
     padding-bottom: 10px;
 }
+
+.userName_status input {
+    min-width: 96%;
+
+
+}.status :hover {
+     background-color: lightblue;
+    cursor: pointer;
+ }
+
 
 
 .description .userName {
@@ -25,10 +35,6 @@
     font-weight: bold;
 
 
-}
-
-.description .status {
-    font-size: 12px;
 }
 
 .contactsHeader {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './ProfileInfo.module.css';
 import Preloader from "../../Common/Preloader/Preloader";
 import ava_null from "./../../../assets/images/ava_null.png"
@@ -12,6 +12,8 @@ const ProfileInfo = ({
                          isOpen, setIsOpen, unfollowFromProfile, userStatus,
                          updateUserStatus, url, isOwner, savePhoto, errorMessage, addPhotoError
                      }) => {
+
+    const [editPageMode, setEditPageMode] = useState(false)
 
     if (!profile) {
         return <Preloader/>
@@ -28,7 +30,7 @@ const ProfileInfo = ({
                         {(isOwner)
                             ? <div>
                                 <div className={s.editPage}>
-                                    <button>Edit page</button>
+                                    <button onClick={() => setEditPageMode(!editPageMode)}>Edit page</button>
                                 </div>
                                 <div className={s.addPhoto}>
                                     <button onClick={() => setIsOpen(true)}>Add photo</button>
@@ -70,8 +72,9 @@ const ProfileInfo = ({
                             <div>Privat information</div>
                             <div>My contacts:</div>
                         </div>
-
-                        <ContactsBlock profile={profile}/>
+                        {editPageMode
+                            ? <div>EDIT MODE</div>
+                            : <ContactsBlock profile={profile}/>}
 
                         <div className={s.job}>{profile.lookingForAJob && "Looking for a job: "}
                             <span>{profile.lookingForAJobDescription}</span></div>
