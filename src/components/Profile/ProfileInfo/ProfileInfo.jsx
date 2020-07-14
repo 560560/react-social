@@ -3,8 +3,9 @@ import s from './ProfileInfo.module.css';
 import Preloader from "../../Common/Preloader/Preloader";
 import ava_null from "./../../../assets/images/ava_null.png"
 import ProfileStatus from "../ProfileStatus";
-import ContactsBlock from "./ContactsBlock";
-import AddAvatar from "./addAvatar/AddAvatar";
+import ContactsBlock from "./Contacts/ContactsBlock";
+import ButtonsBlock from "./ButtonsBlock/ButtonsBlock";
+import ContactsBlockEditMode from "./ContactsEditMode/ContactsBlockEditMode";
 
 
 const ProfileInfo = ({
@@ -20,44 +21,17 @@ const ProfileInfo = ({
     } else {
         return (
             <div>
-                {/*                <div className={s.profileBackground}>
-                    <img src="http://9878621572.myjino.ru/img/sea.jpg" alt=""/>
-                </div>*/}
+
                 <div className={s.profileInfo}>
                     <div className={s.avatarAndButtons}>
                         <div className={s.avatar}><img src={!profile.photos.large ? ava_null : profile.photos.large}
                                                        alt=""/></div>
-                        {(isOwner)
-                            ? <div>
-                                <div className={s.editPage}>
-                                    <button onClick={() => setEditPageMode(!editPageMode)}>Edit page</button>
-                                </div>
-                                <div className={s.addPhoto}>
-                                    <button onClick={() => setIsOpen(true)}>Add photo</button>
-                                    <AddAvatar isOpen={isOpen} setIsOpen={setIsOpen} savePhoto={savePhoto}
-                                               errorMessage={errorMessage} addPhotoError={addPhotoError}/>
-                                </div>
-                            </div>
-                            : <div>
-                                <div className={s.sendMessageButton}>
-                                    <button>Send message</button>
-                                </div>
-                                {isFollowed
-                                    ? <div className={s.isFollow}>
-                                        <button onClick={() => {
-                                            unfollowFromProfile(userId)
-                                        }}>Unfollow
-                                        </button>
-                                    </div>
-                                    : <div className={s.isNotFollow}>
-                                        <button onClick={() => {
-                                            followFromProfile(userId)
-                                        }}>Follow
-                                        </button>
-                                    </div>}
-                            </div>
-                        }
 
+                        <ButtonsBlock userId={userId} isFollowed={isFollowed} followFromProfile={followFromProfile}
+                                      isOpen={isOpen} setIsOpen={setIsOpen} unfollowFromProfile={unfollowFromProfile}
+                                      isOwner={isOwner} savePhoto={savePhoto} errorMessage={errorMessage}
+                                      addPhotoError={addPhotoError} setEditPageMode={setEditPageMode}
+                                      editPageMode={editPageMode}/>
 
                     </div>
                     <div className={s.description}>
@@ -72,13 +46,10 @@ const ProfileInfo = ({
                             <div>Privat information</div>
                             <div>My contacts:</div>
                         </div>
+
                         {editPageMode
-                            ? <div>EDIT MODE</div>
+                            ? <ContactsBlockEditMode profile={profile}/>
                             : <ContactsBlock profile={profile}/>}
-
-                        <div className={s.job}>{profile.lookingForAJob && "Looking for a job: "}
-                            <span>{profile.lookingForAJobDescription}</span></div>
-
 
                     </div>
                 </div>

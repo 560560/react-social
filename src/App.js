@@ -1,5 +1,5 @@
 import React, {Suspense} from 'react';
-import {Redirect, Route, withRouter} from "react-router-dom";
+import {Route, withRouter} from "react-router-dom";
 import './App.css';
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
@@ -39,7 +39,7 @@ class App extends React.Component {
                     <Route path='/music' component={Music}/>
                     <Route path='/settings' component={Settings}/>
                     <Route path='/login' component={LoginContainer}/>
-                    <Redirect from='/' to='/profile'/>
+                    <Route exact path='/' render={() => <ProfileContainer/>}/>
                 </div>
                 </Suspense>
             </div>

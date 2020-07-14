@@ -47,10 +47,23 @@
 .firstContactBlock {
     padding-top: 5px;
 }
+.firstContactBlock input{
+    width: 115px;
+    padding: 0px 5px;
+}
+
 
 .secondContactBlock {
     padding-top: 5px;
 }
+
+.secondContactBlock input{
+    width: 115px;
+    padding: 0px 5px;
+}
+
+
+
 
 .about {
     display: grid;

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, } from "react";
 import s from "./AddAvatar.module.css"
 import {Formik, Form} from "formik";
 import Portal from "../../../Common/Portal/Portal";
