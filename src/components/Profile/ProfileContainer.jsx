@@ -5,12 +5,20 @@ import {
     getUserProfile,
     getUserStatus,
     updateUserStatus,
-    getFollowStatus, followFromProfile, unfollowFromProfile, setIsOpen, savePhoto, addPhotoError
+    getFollowStatus,
+    followFromProfile,
+    unfollowFromProfile,
+    setIsOpen,
+    savePhoto,
+    addPhotoError,
+    setEditMode,
+    setNewProfileContacts
 } from "../../redux/profile-reducer";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {
+    getEditModeSelector,
     getErrorMessageSelector,
     getFollowedStatusSelector,
     getIdSelector, getIsOpenSelector, getLoadingStatusSelector,
@@ -64,7 +72,8 @@ let mapStateToProps = (state) => ({
     isFollowed: getFollowedStatusSelector(state),
     isLoading: getLoadingStatusSelector(state),
     isOpen: getIsOpenSelector(state),
-    errorMessage: getErrorMessageSelector(state)
+    errorMessage: getErrorMessageSelector(state),
+    editMode: getEditModeSelector(state)
 
 
 })
@@ -80,7 +89,9 @@ export default compose(
         unfollowFromProfile,
         setIsOpen,
         savePhoto,
-        addPhotoError
+        addPhotoError,
+        setEditMode,
+        setNewProfileContacts
     }),
     withRouter,
     withAuthRedirect)

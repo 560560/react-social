@@ -1,5 +1,5 @@
 .profileInfo {
-   /* padding-top: 10px;*/
+    /* padding-top: 10px;*/
     display: grid;
     grid-template-columns: 3fr 9fr;
 }
@@ -21,11 +21,12 @@
     min-width: 96%;
 
 
-}.status :hover {
-     background-color: lightblue;
-    cursor: pointer;
- }
+}
 
+.status :hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
 
 
 .description .userName {
@@ -44,26 +45,17 @@
     padding-bottom: 5px;
 }
 
-.firstContactBlock {
-    padding-top: 5px;
-}
-.firstContactBlock input{
-    width: 115px;
-    padding: 0px 5px;
-}
-
-
-.secondContactBlock {
+.firstContactBlock, .secondContactBlock  {
     padding-top: 5px;
 }
 
-.secondContactBlock input{
-    width: 115px;
-    padding: 0px 5px;
+.firstContactBlock input, .secondContactBlock input  {
+    border-radius: 0px;
+    width: 105px;
+    padding: 2px 5px;
+    font-size: 12px;
+    outline:none;
 }
-
-
-
 
 .about {
     display: grid;
@@ -75,12 +67,13 @@
 
 .about img {
     width: 30px;
-    vertical-align:middle;
+    vertical-align: middle;
     padding-right: 10px;
 
 }
+
 .about a {
- text-decoration: none;
+    text-decoration: none;
     color: black;
 
 }
@@ -96,16 +89,99 @@
     filter: grayscale(100%);
 }
 
+.aboutMe textarea {
+    margin: 0px;
+    padding-left: 5px;
+    width: 325px;
+    height: 128px;
+    border: 1px solid #347186;
+    outline:none;
+}
+
+
+.jobAndButtons {
+    display: grid;
+    grid-template-columns: 8fr 2fr 2fr;
+    position: relative;
+}
 
 
 .job {
-font-weight: bold;
-
+    font-weight: bold;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    justify-content: center;
 }
 
 .job span {
     font-weight: normal;
 }
+
+.job label {
+    font-size: 16px;
+}
+
+.job input {
+    width: 14px;
+    margin-left: 8px;
+    outline:none;
+}
+
+.lookingJobInput {
+    display: inline-block;
+    position: absolute;
+    top: -2px;
+    left: 154px;
+    justify-content: center;
+
+}
+
+.lookingJobInput input {
+    padding: 0px 0px 0px 5px;
+    width: 164px;
+    border-radius: 0px;
+    margin-left: 10px;
+}
+
+
+
+.submitButton {
+
+    position: absolute;
+    top: -200px;
+    right: 87px;
+}
+
+.submitButton button {
+    width: 50px;
+    height: 25px;
+    border-radius: 3px;
+    background-color: #047cb8;
+    color: white;
+    outline:none;
+}
+
+.cancelButton {
+
+    position: absolute;
+    top: -200px;
+    right: 19px;
+}
+
+.cancelButton button {
+    width: 60px;
+    height: 25px;
+    border-radius: 3px;
+    background-color: #047cb8;
+    color: white;
+    outline:none;
+}
+
+
+
+
+
 
 .avatarAndButtons {
     text-align: center;
@@ -116,9 +192,7 @@ font-weight: bold;
 
 
 }
-.avatar {
 
-}
 
 .avatar img {
     vertical-align: bottom;
@@ -163,6 +237,7 @@ font-weight: bold;
     border-radius: 5px;
     background-color: #ffffff;
 }
+
 .isNotFollow {
     padding-bottom: 10px;
 }
@@ -178,14 +253,13 @@ font-weight: bold;
 .addPhoto {
     padding-bottom: 10px;
 }
+
 .addPhoto button {
     width: 90%;
     height: 30px;
     border-radius: 5px;
     background-color: #add8e6;
 }
-
-
 
 
 .profileBackground {

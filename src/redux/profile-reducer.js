@@ -9,7 +9,7 @@ const SET_LOADING = "profile-reducer/SET-LOADING"
 const SAVE_PHOTO_SUCCESS = "profile-reducer/SAVE-PHOTO-SUCCESS"
 const SET_OPEN_ADD_PHOTO_STATUS = "profile-reducer/SET-OPEN-ADD-PHOTO-STATUS"
 const ADD_PHOTO_ERROR = "profile-reducer/ADD-PHOTO-ERROR"
-
+const SET_EDIT_MODE = "profile-reducer/SET-EDIT-MODE"
 
 let initialState = {
     profile: null,
@@ -23,7 +23,8 @@ let initialState = {
 
     ],
     wrongImageFile: false,
-    errorMessage: ""
+    errorMessage: "",
+    editMode: false
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -68,6 +69,10 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state, wrongImageFile: action.wrongImageFile, errorMessage: action.errorMessage
             }
+        case SET_EDIT_MODE:
+            return {
+                ...state, editMode:  action.editMode
+            }
         default : {
             return state;
         }
@@ -98,7 +103,11 @@ const savePhotoSuccess = (photos) => {
     return {type: SAVE_PHOTO_SUCCESS, photos}
 }
 export const addPhotoError = (wrongImageFile, errorMessage) => {
-    return {type:ADD_PHOTO_ERROR, wrongImageFile, errorMessage}
+    return {type: ADD_PHOTO_ERROR, wrongImageFile, errorMessage}
+}
+
+export const setEditMode = (editMode) => {
+     return {type: SET_EDIT_MODE, editMode}
 }
 
 // Thunk Creators //
@@ -116,41 +125,45 @@ export const getUserStatus = (userId) => async (dispatch) => {
 }
 export const updateUserStatus = (status) => async (dispatch) => {
     let response = await profileAPI.updateStatus(status);
-        if (response.data.resultCode === 0) {
-            dispatch(setUserStatus(status))
-        }
+    if (response.data.resultCode === 0) {
+        dispatch(setUserStatus(status))
+    }
 }
 export const getFollowStatus = (userId) => async (dispatch) => {
     let response = await profileAPI.getFollowStatus(userId);
-        dispatch(setFollowStatus(response.data))
+    dispatch(setFollowStatus(response.data))
 }
 export const followFromProfile = (id) => async (dispatch) => {
     let response = await profileAPI.followFromProfile(id);
-        if (response.data.resultCode === 0) {
-            dispatch(setFollowStatus(true))
-        }
+    if (response.data.resultCode === 0) {
+        dispatch(setFollowStatus(true))
+    }
 }
 export const unfollowFromProfile = (id) => async (dispatch) => {
     let response = await profileAPI.unfollowFromProfile(id);
-        if (response.data.resultCode === 0) {
-            dispatch(setFollowStatus(false))
-        }
+    if (response.data.resultCode === 0) {
+        dispatch(setFollowStatus(false))
+    }
 }
 export const savePhoto = (photo) => async (dispatch) => {
     let response = await profileAPI.savePhoto(photo);
     if (response.data.resultCode === 0) {
-        dispatch (savePhotoSuccess(response.data.data.photos))
+        dispatch(savePhotoSuccess(response.data.data.photos))
         dispatch(addPhotoError(false, ""))
         dispatch(setIsOpen(false))
+    } else if (response.data.resultCode === 1) {
+
+        dispatch(addPhotoError(true, response.data.messages[0]))
     }
-    else if (response.data.resultCode === 1) {
-
-    dispatch(addPhotoError(true, response.data.messages[0]))
-
-    }
-
-
 }
+export const setNewProfileContacts = (profileData) => async (dispatch) => {
+    let response = await profileAPI.editProfile({...profileData})
+    console.log(response)
+    if (response.data.resultCode === 0) {
+        dispatch(setEditMode(false))
+        getUserProfile()
 
+    }
+}
 
 export default profileReducer;

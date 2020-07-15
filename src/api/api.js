@@ -62,6 +62,21 @@ export const profileAPI = {
                 'Content-Type': 'multipart/form-data'
             }
         })
+    },
+
+    editProfile({
+                    aboutMe, fullName, lookingForAJob, lookingForAJobDescription,
+                    contacts: {facebook, website, vk, twitter, instagram, youtube, github, mainklink}
+                }) {
+        debugger
+        return instance.put(`profile`, {
+            aboutMe,
+            fullName,
+            lookingForAJob,
+            lookingForAJobDescription,
+            contacts: {facebook, website, vk, twitter, instagram, youtube, github, mainklink}
+
+        })
     }
 
 }

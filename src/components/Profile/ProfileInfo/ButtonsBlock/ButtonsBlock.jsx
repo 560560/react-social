@@ -6,8 +6,8 @@ import AddAvatar from "../addAvatar/AddAvatar";
 
 const ButtonsBlock = ({
                           userId,  isFollowed, followFromProfile,isOpen, setIsOpen, setEditPageMode,
-                          setNewContacts, unfollowFromProfile, isOwner, savePhoto, errorMessage,
-                          addPhotoError, editPageMode
+                          unfollowFromProfile, isOwner, savePhoto, errorMessage,
+                          addPhotoError, setEditMode, editMode
                       }) => {
 
     return (
@@ -15,12 +15,12 @@ const ButtonsBlock = ({
 
             {(isOwner)
                 ? <div>
-                    {!editPageMode
+                    {!editMode
                         ? <div className={s.editPage}>
-                            <button onClick={() => setEditPageMode(!editPageMode)}>Edit page</button>
+                            <button onClick={() => setEditMode(true)}>Edit page</button>
                         </div>
                         : <div className={s.editPage}>
-                            <button onClick={setNewContacts}>Save page</button>
+                            <button disabled={true}>Edition mode</button>
                         </div>
 
                     }
