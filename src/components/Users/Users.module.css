@@ -6,11 +6,21 @@
 }
 
 .usersBlock {
-
     display: grid;
     grid-template-columns: 1fr 8fr 3fr;
     padding: 40px 0px 0px 40px;
+
 }
+
+.userBlockWhileIsFetching {
+    display: grid;
+    grid-template-columns: 1fr 8fr 3fr;
+    padding: 40px 0px 0px 40px;
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    filter: blur(3px);
+}
+
 
 .userAva_followButton {
     text-align: center;

@@ -3,9 +3,9 @@ import s from './Users.module.css';
 import {NavLink} from "react-router-dom";
 
 
-const User = ({user, ava_null, followingInProgress, follow, unfollow}) => {
+const User = ({user, ava_null, followingInProgress, follow, unfollow, isFetching}) => {
     return (
-        <div className={s.usersBlock}>
+        <div className={isFetching ? s.userBlockWhileIsFetching : s.usersBlock}>
             <div className={s.userAva_followButton}>
                 <div className={s.userAva}><NavLink to={"/profile/" + user.id}><img
                     src={user.photos.small === null ? ava_null : user.photos.small}

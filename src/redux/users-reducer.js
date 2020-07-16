@@ -86,9 +86,9 @@ export const getUsers = (pageSize, currentPage) => (dispatch) => {
   userAPI.getUsers(pageSize, currentPage)
     .then(response => response.data)
     .then(data => {
-      dispatch(toggleIsFetching(false));
       dispatch(setUsers(data.items));
       dispatch(setUsersCount(data.totalCount));
+      dispatch(toggleIsFetching(false));
     })
 }
 export const unfollow = (id) => (dispatch) => {
