@@ -5,13 +5,27 @@ display: inline-block;
     min-width: 400px;
     vertical-align: middle;
 }
+button:active {
+    transform: scale(0.97);
+}
 
-
+.button {
+    padding-top: 5px;
+}
 
 .button button {
-
     height: 35px;
     width: 120px;
-
+    border-radius: 5px;
+    background-color: #add8e6;
+    border: 1px solid #347186;
+    outline: none;
 }
+.button button:hover {
+    background: #caf2ff;
+    tansition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+}
+
 

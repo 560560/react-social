@@ -72,7 +72,7 @@ const ContactsBlockEditMode = ({profile, contactsFormSubmit, setProfileEditMode}
                     <div className={s.errorFullName}><ErrorMessage name="fullName" component={FormErrorMessage}/></div>
                 </div>
                 <div className={s.about}>
-                    <div className={s.aboutMe}><span>About me: </span>
+                    <div className={s.aboutMe}>About me:
                         <Field as="textarea" name="aboutMe" id="aboutMe"
                                placeholder={"About me"}/></div>
                     <ErrorMessage className={s.errorAboutMe} name="aboutMe" id="noArrow"

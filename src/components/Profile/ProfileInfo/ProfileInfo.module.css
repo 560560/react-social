@@ -4,6 +4,12 @@
     grid-template-columns: 3fr 9fr;
     cursor: default;
 }
+button {
+    outline: none;
+}
+button:active {
+    transform: scale(0.97);
+}
 
 .description {
     background-color: #FFFFFF;
@@ -29,7 +35,7 @@
 
 
 .description .userName {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
 
 }
@@ -42,11 +48,13 @@
     font-weight: bold;
 }
 
-.firstContactBlock, .secondContactBlock {
+.firstContactBlock,
+.secondContactBlock {
     padding-top: 5px;
 }
 
-.firstContactBlock input, .secondContactBlock input {
+.firstContactBlock input,
+.secondContactBlock input {
     border-radius: 0px;
     width: 105px;
     padding: 2px 5px;
@@ -83,8 +91,12 @@
     filter: grayscale(100%);
 }
 
+.aboutMe {
+    font-weight: bold;;
+}
 .aboutMe span {
-    font-weight: bold;
+    font-weight: normal;
+    padding-left: 10px;
 }
 
 .aboutMe textarea {
@@ -112,6 +124,7 @@
 
 .job span {
     font-weight: normal;
+    padding-left: 10px;
 }
 
 .job label {
@@ -152,8 +165,8 @@
     background-color: #047cb8;
     color: white;
     outline: none;
+    border: 1px solid #347186;
 }
-
 .cancelButton {
     position: absolute;
     top: -200px;
@@ -167,6 +180,15 @@
     background-color: #047cb8;
     color: white;
     outline: none;
+    border: 1px solid #347186;
+}
+
+.submitButton button:hover,
+.cancelButton button:hover{
+    background: #1ba9ec;
+    tansition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
 }
 
 .avatarAndButtons {
@@ -195,18 +217,31 @@
     height: 30px;
     border-radius: 5px;
     background-color: #add8e6;
+    border: 1px solid #347186;
 }
 
 .editPage {
     padding-bottom: 10px;
 }
 
-
 .editPage button {
     width: 90%;
     height: 30px;
     border-radius: 5px;
     background-color: #add8e6;
+    border: 1px solid #347186;
+}
+
+.editPageEditionMode {
+    padding-bottom: 10px;
+}
+
+.editPageEditionMode button {
+    width: 90%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #add8e6;
+    border: 1px solid #347186;
 }
 
 
@@ -219,6 +254,7 @@
     height: 30px;
     border-radius: 5px;
     background-color: #ffffff;
+    border: 1px solid #347186;
 }
 
 .isNotFollow {
@@ -231,6 +267,7 @@
     height: 30px;
     border-radius: 5px;
     background-color: #add8e6;
+    border: 1px solid #347186;
 }
 
 .addPhoto {
@@ -242,6 +279,7 @@
     height: 30px;
     border-radius: 5px;
     background-color: #add8e6;
+    border: 1px solid #347186;
 }
 
 
@@ -291,7 +329,7 @@
 
 .fullNameInput {
     position: absolute;
-    top: 88px;
+    top: 87px;
     background-color: #FFFFFF;
 
 
@@ -299,7 +337,7 @@
 
 .fullNameInput input {
     border-radius: 0px;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     padding: 0px 0px 3px 5px;
     line-height: 1.2;
@@ -317,4 +355,15 @@
     min-width: 300px;
     text-align: center;
     background-color: white;
+}
+
+
+.sendMessageButton button:hover,
+.isNotFollow button:hover,
+.editPage button:hover,
+.addPhoto button:hover{
+    background: #caf2ff;
+    tansition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
 }

@@ -16,7 +16,7 @@ const ContactsBlock = ({profile}) => {
     return (
         <>
             <div className={s.about}>
-                <div className={s.aboutMe}><span>About me: </span>{profile.aboutMe}</div>
+                <div className={s.aboutMe}>About me:<span>{profile.aboutMe}</span></div>
                 <div className={s.firstContactBlock}>
 
                     <ContactItem icon={facebook} contact={profile.contacts.facebook} contactName="Facebook"/>
@@ -37,8 +37,10 @@ const ContactsBlock = ({profile}) => {
             </div>
 
             <div className={s.jobAndButtons}>
-            <div className={s.job}>{profile.lookingForAJob && "Looking for a job: "}
-                <span>{profile.lookingForAJobDescription}</span></div>
+                {profile.lookingForAJob &&
+                <div className={s.job}>Looking for a job:
+                    <span>{profile.lookingForAJobDescription}</span></div>
+                }
             </div>
         </>
     )

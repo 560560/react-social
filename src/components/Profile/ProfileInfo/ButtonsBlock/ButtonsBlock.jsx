@@ -19,7 +19,7 @@ const ButtonsBlock = ({
                         ? <div className={s.editPage}>
                             <button onClick={() => setProfileEditMode(true)}>Edit page</button>
                         </div>
-                        : <div className={s.editPage}>
+                        : <div className={s.editPageEditionMode}>
                             <button disabled={true}>Edition mode</button>
                         </div>
 
