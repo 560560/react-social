@@ -337,7 +337,7 @@ button:active {
 
 .fullNameInput {
     position: absolute;
-    top: 87px;
+    top: 16px;
     background-color: #FFFFFF;
 
 
@@ -347,7 +347,7 @@ button:active {
     border-radius: 0px;
     font-size: 22px;
     font-weight: bold;
-    padding: 0px 0px 3px 5px;
+    padding: 0px 0px 0px 5px;
     line-height: 1.2;
     width: 220px;
     height: 24px;
