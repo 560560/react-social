@@ -83,7 +83,15 @@ button:active {
 .about .contactItem {
     padding-bottom: 10px;
     color: #a8a8a8;
+    transition: 0.1s linear
 }
+
+
+.about .contactItem:hover {
+    font-weight: bold;
+
+}
+
 
 .about .contactItemGray {
     padding-bottom: 10px;

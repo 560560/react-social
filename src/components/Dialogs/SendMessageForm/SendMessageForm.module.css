@@ -4,6 +4,7 @@ display: inline-block;
 .addMessage textarea{
     min-width: 400px;
     vertical-align: middle;
+    outline: none;
 }
 button:active {
     transform: scale(0.97);
