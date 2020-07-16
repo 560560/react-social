@@ -29,6 +29,6 @@ export const getErrorMessageSelector = (state) => {
     return state.profilePage.errorMessage
 }
 export const getEditModeSelector = (state) => {
-    return state.profilePage.editMode
+    return state.profilePage.profileEditMode
 }
 

@@ -66,16 +66,14 @@ export const profileAPI = {
 
     editProfile({
                     aboutMe, fullName, lookingForAJob, lookingForAJobDescription,
-                    contacts: {facebook, website, vk, twitter, instagram, youtube, github, mainklink}
+                    contacts: {facebook, website, vk, twitter, instagram, youtube, github, mainLink}
                 }) {
-        debugger
         return instance.put(`profile`, {
             aboutMe,
             fullName,
             lookingForAJob,
             lookingForAJobDescription,
-            contacts: {facebook, website, vk, twitter, instagram, youtube, github, mainklink}
-
+            contacts: {facebook, website, vk, twitter, instagram, youtube, github, mainLink}
         })
     }
 

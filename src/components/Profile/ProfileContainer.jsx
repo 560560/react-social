@@ -11,7 +11,7 @@ import {
     setIsOpen,
     savePhoto,
     addPhotoError,
-    setEditMode,
+    setProfileEditMode,
     setNewProfileContacts
 } from "../../redux/profile-reducer";
 import {withRouter} from "react-router-dom";
@@ -73,7 +73,7 @@ let mapStateToProps = (state) => ({
     isLoading: getLoadingStatusSelector(state),
     isOpen: getIsOpenSelector(state),
     errorMessage: getErrorMessageSelector(state),
-    editMode: getEditModeSelector(state)
+    profileEditMode: getEditModeSelector(state)
 
 
 })
@@ -90,7 +90,7 @@ export default compose(
         setIsOpen,
         savePhoto,
         addPhotoError,
-        setEditMode,
+        setProfileEditMode,
         setNewProfileContacts
     }),
     withRouter,

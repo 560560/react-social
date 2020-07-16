@@ -7,7 +7,7 @@ import Preloader from "../Common/Preloader/Preloader";
 const Profile = ({isLoading, profile, myId, match, userStatus, updateUserStatus,
                      savePhoto, errorMessage, isFollowed, followFromProfile,
                      unfollowFromProfile, userId, isOwner, isOpen, setIsOpen,
-                     addPhotoError, setEditMode, setNewProfileContacts, editMode}) => {
+                     addPhotoError, setProfileEditMode, setNewProfileContacts, profileEditMode}) => {
   if (isLoading) {
     return <Preloader/>
   } else {
@@ -19,7 +19,7 @@ const Profile = ({isLoading, profile, myId, match, userStatus, updateUserStatus,
                    followFromProfile={followFromProfile} isOpen={isOpen} setIsOpen={setIsOpen}
                    unfollowFromProfile={unfollowFromProfile} userId={userId} isOwner={isOwner}
                    savePhoto={savePhoto} addPhotoError={addPhotoError}
-                   setEditMode={setEditMode} setNewProfileContacts={setNewProfileContacts} editMode={editMode}/>
+                   setProfileEditMode={setProfileEditMode} setNewProfileContacts={setNewProfileContacts} profileEditMode={profileEditMode}/>
       <MyPostsContainer />
     </div>)
 

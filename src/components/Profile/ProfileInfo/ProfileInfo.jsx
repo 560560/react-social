@@ -12,12 +12,11 @@ const ProfileInfo = ({
                          profile, userId, myId, isFollowed, followFromProfile,
                          isOpen, setIsOpen, unfollowFromProfile, userStatus,
                          updateUserStatus, url, isOwner, savePhoto, errorMessage,
-                         addPhotoError, setEditMode, setNewProfileContacts, editMode
+                         addPhotoError, setProfileEditMode, setNewProfileContacts, profileEditMode
                      }) => {
 
-
     let contactsFormSubmit = (formData) => {
-        setNewProfileContacts(formData)
+        setNewProfileContacts(formData, myId)
     }
 
     if (!profile) {
@@ -34,7 +33,8 @@ const ProfileInfo = ({
                         <ButtonsBlock userId={userId} isFollowed={isFollowed} followFromProfile={followFromProfile}
                                       isOpen={isOpen} setIsOpen={setIsOpen} unfollowFromProfile={unfollowFromProfile}
                                       isOwner={isOwner} savePhoto={savePhoto} errorMessage={errorMessage}
-                                      addPhotoError={addPhotoError} setEditMode={setEditMode} editMode={editMode}/>
+                                      addPhotoError={addPhotoError} setProfileEditMode={setProfileEditMode}
+                                      profileEditMode={profileEditMode}/>
 
                     </div>
                     <div className={s.description}>
@@ -46,13 +46,13 @@ const ProfileInfo = ({
                         </div>
 
                         <div className={s.contactsHeader}>
-                            <div>Privat information</div>
+                            <div>Profile information</div>
                             <div>My contacts:</div>
                         </div>
 
-                        {editMode
+                        {profileEditMode
                             ? <ContactsBlockEditMode profile={profile} contactsFormSubmit={contactsFormSubmit}
-                                                     setEditMode={setEditMode}/>
+                                                     setProfileEditMode={setProfileEditMode}/>
                             : <ContactsBlock profile={profile}/>}
 
                     </div>

@@ -9,7 +9,7 @@ const ContactItem = ({contact, icon, contactName}) => {
             {!contact
                 ? <div className={s.contactItemGray}><img src={icon} alt=""/>{contactName}</div>
                 : <div className={s.contactItem}><img src={icon} alt=""/><a
-                    href={contact}>{contactName}</a></div>
+                    href={contact} target="_blank" rel="noopener noreferrer">{contactName}</a></div>
             }
 
         </>

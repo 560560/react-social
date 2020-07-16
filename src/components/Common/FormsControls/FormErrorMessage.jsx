@@ -4,11 +4,10 @@ import errorArrow from "./../../../assets/images/errorArrow.svg"
 
 
 const FormErrorMessage = (props) => {
-
     return (
 
         <div className={s.errorMessageBlock}>
-           <span> <img src={errorArrow} alt=""/> <span>{props.children}</span></span>
+           <span> {props.id !== "noArrow" && <img src={errorArrow} alt=""/>} <span>{props.children}</span></span>
         </div>
 
     )

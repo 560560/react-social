@@ -9,7 +9,7 @@ const SET_LOADING = "profile-reducer/SET-LOADING"
 const SAVE_PHOTO_SUCCESS = "profile-reducer/SAVE-PHOTO-SUCCESS"
 const SET_OPEN_ADD_PHOTO_STATUS = "profile-reducer/SET-OPEN-ADD-PHOTO-STATUS"
 const ADD_PHOTO_ERROR = "profile-reducer/ADD-PHOTO-ERROR"
-const SET_EDIT_MODE = "profile-reducer/SET-EDIT-MODE"
+const SET_PROFILE_EDIT_MODE = "profile-reducer/SET-PROFILE-EDIT-MODE"
 
 let initialState = {
     profile: null,
@@ -24,7 +24,7 @@ let initialState = {
     ],
     wrongImageFile: false,
     errorMessage: "",
-    editMode: false
+    profileEditMode: false
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -69,9 +69,9 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state, wrongImageFile: action.wrongImageFile, errorMessage: action.errorMessage
             }
-        case SET_EDIT_MODE:
+        case SET_PROFILE_EDIT_MODE:
             return {
-                ...state, editMode:  action.editMode
+                ...state, profileEditMode:  action.profileEditMode
             }
         default : {
             return state;
@@ -106,8 +106,8 @@ export const addPhotoError = (wrongImageFile, errorMessage) => {
     return {type: ADD_PHOTO_ERROR, wrongImageFile, errorMessage}
 }
 
-export const setEditMode = (editMode) => {
-     return {type: SET_EDIT_MODE, editMode}
+export const setProfileEditMode = (profileEditMode) => {
+     return {type: SET_PROFILE_EDIT_MODE, profileEditMode}
 }
 
 // Thunk Creators //
@@ -156,12 +156,14 @@ export const savePhoto = (photo) => async (dispatch) => {
         dispatch(addPhotoError(true, response.data.messages[0]))
     }
 }
-export const setNewProfileContacts = (profileData) => async (dispatch) => {
+export const setNewProfileContacts = (profileData, userId) => async (dispatch) => {
+    dispatch(setLoading(true))
     let response = await profileAPI.editProfile({...profileData})
-    console.log(response)
     if (response.data.resultCode === 0) {
-        dispatch(setEditMode(false))
-        getUserProfile()
+        dispatch(setProfileEditMode(false))
+        let response = await userAPI.getUserProfile(userId);
+        dispatch(setUserProfile(response.data))
+        dispatch(setLoading(false))
 
     }
 }
