@@ -6,6 +6,7 @@ import AddPostForm from "../AddPostForm/AddPostForm";
 
 
 const MyPosts = (props) => {
+
   let addPost = (formData) => {
     props.addPost (formData.postText)
   }
@@ -19,7 +20,6 @@ const MyPosts = (props) => {
       <div className={s.posts}>
         {postsElements}
       </div>
-
     </div>)
 }
 
