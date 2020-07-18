@@ -157,10 +157,10 @@ export const savePhoto = (photo) => async (dispatch) => {
     }
 }
 export const setNewProfileContacts = (profileData, userId) => async (dispatch) => {
-    dispatch(setLoading(true))
     let response = await profileAPI.editProfile({...profileData})
     if (response.data.resultCode === 0) {
         dispatch(setProfileEditMode(false))
+        dispatch(setLoading(true))
         let response = await userAPI.getUserProfile(userId);
         dispatch(setUserProfile(response.data))
         dispatch(setLoading(false))

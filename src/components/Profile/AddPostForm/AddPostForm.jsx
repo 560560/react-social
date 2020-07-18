@@ -23,17 +23,18 @@ const AddPostForm = ({onSubmit}) => {
                     setSubmitting(false);
                     resetForm();
                 }}>
-            {({isSubmitting}) => (<Form>
-                <div className={s.addPost}>
-                    <Field as="textarea" name="postText" id="postText" placeholder="Enter your post"/>
-                    <ErrorMessage name="postText" component={FormErrorMessage}/>
-                </div>
+            {({isSubmitting}) => (
+                <Form>
+                    <div className={s.addPost}>
+                        <Field as="textarea" name="postText" id="postText" placeholder="Enter your post"/>
+                        <ErrorMessage name="postText" component={FormErrorMessage}/>
+                    </div>
 
-                <div className={s.button}>
-                    <button disabled={isSubmitting} type="submit">Add post</button>
-                </div>
+                    <div className={s.button}>
+                        <button disabled={isSubmitting} type="submit">Add post</button>
+                    </div>
 
-            </Form>)
+                </Form>)
 
             }
 

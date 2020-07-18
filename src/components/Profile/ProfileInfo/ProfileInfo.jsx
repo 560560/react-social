@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './ProfileInfo.module.css';
-import Preloader from "../../Common/Preloader/Preloader";
 import ava_null from "./../../../assets/images/ava_null.png"
 import ProfileStatus from "../ProfileStatus";
 import ContactsBlock from "./Contacts/ContactsBlock";
@@ -10,7 +9,7 @@ import ContactsBlockEditMode from "./ContactsEditMode/ContactsBlockEditMode";
 
 const ProfileInfo = ({
                          profile, userId, myId, isFollowed, followFromProfile,
-                         isOpen, setIsOpen, unfollowFromProfile, userStatus,
+                         isOpen, setIsOpen, unfollowFromProfile, userStatus, isLoading,
                          updateUserStatus, url, isOwner, savePhoto, errorMessage,
                          addPhotoError, setProfileEditMode, setNewProfileContacts, profileEditMode
                      }) => {
@@ -19,11 +18,9 @@ const ProfileInfo = ({
         setNewProfileContacts(formData, myId)
     }
 
-    if (!profile) {
-        return <Preloader/>
-    } else {
+
         return (
-            <div>
+            <div className={isLoading ? s.loadingContentWrapper: ""}>
 
                 <div className={s.profileInfo}>
                     <div className={s.avatarAndButtons}>
@@ -59,7 +56,7 @@ const ProfileInfo = ({
                 </div>
             </div>)
 
-    }
+
 }
 
 export default ProfileInfo;

@@ -25,17 +25,18 @@ const SendMessageForm = ({onSubmit}) => {
                     resetForm();
                 }}>
 
-            {({isSubmitting}) => (<Form>
-                <div className={s.addMessage}>
-                    <Field as="textarea" name="messageText" id="messageText" placeholder="Enter your message"/>
-                    <ErrorMessage name="messageText" component={FormErrorMessage}/>
-                </div>
+            {({isSubmitting}) => (
+                <Form>
+                    <div className={s.addMessage}>
+                        <Field as="textarea" name="messageText" id="messageText" placeholder="Enter your message"/>
+                        <ErrorMessage name="messageText" component={FormErrorMessage}/>
+                    </div>
 
-                <div className={s.button}>
-                    <button disabled={isSubmitting}>Send message</button>
-                </div>
+                    <div className={s.button}>
+                        <button disabled={isSubmitting}>Send message</button>
+                    </div>
 
-            </Form>)}
+                </Form>)}
 
 
         </Formik>
