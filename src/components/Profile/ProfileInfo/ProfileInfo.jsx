@@ -5,6 +5,7 @@ import ProfileStatus from "../ProfileStatus";
 import ContactsBlock from "./Contacts/ContactsBlock";
 import ButtonsBlock from "./ButtonsBlock/ButtonsBlock";
 import ContactsBlockEditMode from "./ContactsEditMode/ContactsBlockEditMode";
+import Preloader from "../../Common/Preloader/Preloader";
 
 
 const ProfileInfo = ({
@@ -18,9 +19,10 @@ const ProfileInfo = ({
         setNewProfileContacts(formData, myId)
     }
 
-
+    if (!profile) { return <Preloader/>
+    } else {
         return (
-            <div className={isLoading ? s.loadingContentWrapper: ""}>
+            <div className={isLoading ? s.loadingContentWrapper : ""}>
 
                 <div className={s.profileInfo}>
                     <div className={s.avatarAndButtons}>
@@ -55,6 +57,7 @@ const ProfileInfo = ({
                     </div>
                 </div>
             </div>)
+    }
 
 
 }

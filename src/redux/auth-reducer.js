@@ -1,10 +1,11 @@
 import {authAPI} from "../api/api";
 import {setUserProfile} from "./profile-reducer";
 
-const SET_USER_DATA = "SET_USER_DATA"
-const LOGINING = "LOGINING"
-const AUTH_WRONG = "AUTH-WRONG"
-const LOGOUT_CLEAR_ID ="LOGOUT-CLEAR-ID"
+const SET_USER_DATA = "auth-reducer/SET_USER_DATA"
+const LOGINING = "auth-reducer/LOGINING"
+const AUTH_WRONG = "auth-reducer/AUTH-WRONG"
+const LOGOUT_CLEAR_ID ="auth-reducer/LOGOUT-CLEAR-ID"
+const IS_LOGINING ="auth-reducer/IS-LOGINING"
 
 let initialState = {
     id: null,
@@ -12,7 +13,8 @@ let initialState = {
     login: null,
     isAuth: false,
     wrongAuth: false,
-    errorMessage: ""
+    errorMessage: "",
+    isLogining: false
 }
 
 
@@ -27,6 +29,8 @@ const authReducer = (state = initialState, action) => {
             return {...state, wrongAuth: action.wasError, errorMessage: action.errorMessage}
         case LOGOUT_CLEAR_ID:
             return {...state, id: null, email: null, login: null}
+        case IS_LOGINING:
+            return {...state, isLogining: action.isLogining}
         default:
             return state
     }
@@ -38,6 +42,7 @@ const setAuthUserData = (data) => ({type: SET_USER_DATA, data})
 const logining = (isAuth) => ({type: LOGINING, isAuth})
 const authError = (wasError, errorMessage) => ({type: AUTH_WRONG, wasError, errorMessage})
 const clearId = () => ({type:LOGOUT_CLEAR_ID})
+const setIsLogining = (isLogining) => ({type:IS_LOGINING, isLogining})
 
 
 // Thunk Creators //
@@ -50,6 +55,7 @@ export const authorization = () => async (dispatch) => {
 
 }
 export const loginMe = (email, password, rememberMe) => async (dispatch) => {
+    dispatch(setIsLogining(true))
     let response = await authAPI.login(email, password, rememberMe)
     if (response.data.resultCode === 0) {
         dispatch(logining(true))
@@ -57,11 +63,13 @@ export const loginMe = (email, password, rememberMe) => async (dispatch) => {
         response = await authAPI.me()
         if (response.data.resultCode === 0) {
             dispatch(setAuthUserData(response.data.data));
+            dispatch(setIsLogining(false))
         }
 
     }
     if (response.data.resultCode === 1) {
         dispatch(authError(true, response.data.messages[0]))
+        dispatch(setIsLogining(false))
     }
 
 }
