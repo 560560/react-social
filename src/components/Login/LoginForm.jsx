@@ -23,27 +23,32 @@ const LoginForm = ({wrongAuth, onSubmit, errorMessage, isLogining}) => {
                 <Formik initialValues={initValue}
                         validationSchema={validationSchema}
                         onSubmit={
-                            (values, {setSubmitting, resetForm}) => {
-                                setSubmitting(true)
-                                onSubmit(values).then(() => {
-                                    setSubmitting(false)
-                                    resetForm()
-                                })
+                            (values) => {
+                                onSubmit(values)
                             }
                         }>
 
-                    {({isSubmitting}) => (
+                    {() => (
                         <Form>
 
                             <div className={s.login}>
                                 <label htmlFor="login">Login</label>
-                                <Field type="text" name="login" id="login" placeholder="Your e-mail"/>
+                                <Field type="text"
+                                       name="login"
+                                       id="login"
+                                       placeholder="Your e-mail"
+                                       autocomplete="username"/>
                                 <ErrorMessage name="login" component={FormErrorMessage}/>
                             </div>
 
                             <div className={s.password}>
                                 <label htmlFor="password">Password</label>
-                                <Field type="password" name="password" id="password" placeholder="Your password"/>
+                                <Field
+                                    type="password"
+                                    name="password"
+                                    id="password"
+                                    placeholder="Your password"
+                                    autoComplete="current-password"/>
                                 <ErrorMessage name="password" component={FormErrorMessage}/>
                             </div>
 

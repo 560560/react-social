@@ -106,10 +106,12 @@ button:active {
 }
 
 .aboutMe {
-    font-weight: bold;;
+    font-weight: bold;
+    margin-right: 15px;
 }
 .aboutMe span {
     font-weight: normal;
+
     padding-left: 10px;
 }
 

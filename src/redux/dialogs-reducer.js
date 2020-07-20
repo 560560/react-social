@@ -3,11 +3,11 @@ const SEND_MESSAGE = "dialogs-reducer/SEND-MESSAGE";
 
 let initialState = {
   dialogsData: [
-    {id: 1, name: "Anton", avatar: "http://9878621572.myjino.ru/img/ava_1.jpg"},
-    {id: 2, name: "Elena", avatar: "http://9878621572.myjino.ru/img/ava_2.jpg"},
-    {id: 3, name: "Mihail", avatar: "http://9878621572.myjino.ru/img/ava_3.jpg"},
-    {id: 4, name: "Kseniya", avatar: "http://9878621572.myjino.ru/img/ava_4.jpg"},
-    {id: 5, name: "Maya", avatar: "http://9878621572.myjino.ru/img/ava_5.jpg"}
+    {id: 1, name: "Anton", avatar: "https://social.reactlearning.ru/img/ava_1.jpg"},
+    {id: 2, name: "Elena", avatar: "https://social.reactlearning.ru/img/ava_2.jpg"},
+    {id: 3, name: "Mihail", avatar: "https://social.reactlearning.ru/img/ava_3.jpg"},
+    {id: 4, name: "Kseniya", avatar: "https://social.reactlearning.ru/img/ava_4.jpg"},
+    {id: 5, name: "Maya", avatar: "https://social.reactlearning.ru/img/ava_5.jpg"}
   ],
   messagesData: [
     {

@@ -6,7 +6,7 @@ import logoutHover from "./../../assets/images/logout_hover.svg"
 const Header = ({isAuth, login, loginOut}) => {
   return (
     <header className={s.header}>
-     <div className={s.logo}> <img src="http://9878621572.myjino.ru/img/logo.svg" alt=""/></div>
+     <div className={s.logo}> <img src="https://social.reactlearning.ru/img/logo.svg" alt=""/></div>
       <div className={s.loginBlock}>
         {isAuth ?
           (<div className={s.logined}><NavLink to={`/profile`}>{login}</NavLink>

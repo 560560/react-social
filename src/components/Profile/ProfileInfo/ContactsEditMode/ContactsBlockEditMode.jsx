@@ -27,7 +27,7 @@ const ContactsBlockEditMode = ({profile, contactsFormSubmit, setProfileEditMode}
 
     let validationSchema = Yup.object({
         fullName: Yup.string().required("Please enter your name").max(14, "Name must not exceed 14 characters"),
-        lookingForAJobDescription: Yup.string().required("Please enter job description"),
+        lookingForAJobDescription: Yup.string().required("Please enter job description").max(25,'Must be less 25 characters'),
         aboutMe: Yup.string().required("Please enter a couple words about yourself"),
         contacts: Yup.object({
             facebook: Yup.string().url("Please enter valid Facebook url address"),
