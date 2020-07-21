@@ -23,7 +23,6 @@ const ProfileInfo = ({
     } else {
         return (
             <div className={isLoading ? s.loadingContentWrapper : ""}>
-
                 <div className={s.profileInfo}>
                     <div className={s.avatarAndButtons}>
                         <div className={s.avatar}><img src={!profile.photos.large ? ava_null : profile.photos.large}

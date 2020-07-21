@@ -13,45 +13,45 @@ let initialState = {
     {
       id: 1,
       owner: true,
-      ownerAva: "http://9878621572.myjino.ru/img/ava_1.jpg",
+      ownerAva: "https://social.reactlearning.ru/img/ava_1.jpg",
       opponentsName: "Mihail",
-      opponentsAva: "http://9878621572.myjino.ru/img/ava_3.jpg",
+      opponentsAva: "https://social.reactlearning.ru/img/ava_3.jpg",
       message: "I'm OK! How is your IT-KAMASUTRA",
       date: "29 March 13:13"
     },
     {
       id: 2,
       owner: false,
-      ownerAva: "http://9878621572.myjino.ru/img/ava_1.jpg",
+      ownerAva: "https://social.reactlearning.ru/img/ava_1.jpg",
       opponentsName: "Mihail",
-      opponentsAva: "http://9878621572.myjino.ru/img/ava_3.jpg",
+      opponentsAva: "https://social.reactlearning.ru/img/ava_3.jpg",
       message: "How are you?",
       date: "28 March 2020 10:27"
     },
     {
       id: 3,
       owner: true,
-      ownerAva: "http://9878621572.myjino.ru/img/ava_1.jpg",
+      ownerAva: "https://social.reactlearning.ru/img/ava_1.jpg",
       opponentsName: "Mihail",
-      opponentsAva: "http://9878621572.myjino.ru/img/ava_3.jpg",
+      opponentsAva: "https://social.reactlearning.ru/img/ava_3.jpg",
       message: "Hi!",
       date: "28 March 2020 00:59"
     },
     {
       id: 4,
       owner: true,
-      ownerAva: "http://9878621572.myjino.ru/img/ava_1.jpg",
+      ownerAva: "https://social.reactlearning.ru/img/ava_1.jpg",
       opponentsName: "Mihail",
-      opponentsAva: "http://9878621572.myjino.ru/img/ava_3.jpg",
+      opponentsAva: "https://social.reactlearning.ru/img/ava_3.jpg",
       message: "Thanks!!!",
       date: "04 January 2020 00:24"
     },
     {
       id: 5,
       owner: false,
-      ownerAva: "http://9878621572.myjino.ru/img/ava_1.jpg",
+      ownerAva: "https://social.reactlearning.ru/img/ava_1.jpg",
       opponentsName: "Mihail",
-      opponentsAva: "http://9878621572.myjino.ru/img/ava_3.jpg",
+      opponentsAva: "https://social.reactlearning.ru/img/ava_3.jpg",
       message: "Best Regards!",
       date: "03 January 2020 06:54"
     }
@@ -70,9 +70,9 @@ const dialogsReducer = (state = initialState, action) => {
       let newMessage = {
         id: 6,
         owner: true,
-        ownerAva: "http://9878621572.myjino.ru/img/ava_1.jpg",
+        ownerAva: "https://social.reactlearning.ru/img/ava_1.jpg",
         apponentsName: "Mihail",
-        apponentsAva: "http://9878621572.myjino.ru/img/ava_3.jpg",
+        apponentsAva: "https://social.reactlearning.ru/img/ava_3.jpg",
         message: action.messageText,
         date: "Date()"
       }

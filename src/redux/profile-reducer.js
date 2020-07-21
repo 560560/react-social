@@ -156,7 +156,7 @@ export const savePhoto = (photo) => async (dispatch) => {
         dispatch(addPhotoError(true, response.data.messages[0]))
     }
 }
-export const setNewProfileContacts = (profileData, userId) => async (dispatch) => {
+export const setNewProfileContacts = (profileData, userId) => async (dispatch, getState) => {
     let response = await profileAPI.editProfile({...profileData})
     if (response.data.resultCode === 0) {
         dispatch(setProfileEditMode(false))
