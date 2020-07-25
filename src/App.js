@@ -1,5 +1,5 @@
 import React, {Suspense} from 'react';
-import {Route, withRouter} from "react-router-dom";
+import {Redirect, Route, withRouter} from "react-router-dom";
 import './App.css';
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
@@ -23,6 +23,7 @@ class App extends React.Component {
         this.props.initializeApp()
     }
     render() {
+        console.log(this.props)
         if (!this.props.initialized) {
             return <div></div>
         }
@@ -39,8 +40,8 @@ class App extends React.Component {
                     <Route path='/news' component={News}/>
                     <Route path='/music' component={Music}/>
                     <Route path='/settings' component={Settings}/>
-                    <Route path='/login' component={LoginContainer}/>
-                    <Route exact path='/' render={() => <ProfileContainer/>}/>
+                    <Route path='/login' render={() => <LoginContainer/>}/>
+                    {this.props.match.url === "/" && <Redirect to='/profile'/>}
                 </div>
                 </Suspense>
             </div>
